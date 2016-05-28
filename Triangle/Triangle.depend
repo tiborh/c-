@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1464384512 source:/home/tibor/repos/cplusplus/Triangle/main.cpp
+	<iostream>
+	<cmath>
+
