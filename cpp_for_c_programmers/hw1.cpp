@@ -33,7 +33,7 @@ using namespace std;
 // the_data: the vector storing the elements to sum
 // returns the sum of elements. No side effect
 template<class T>
-inline T sum(T the_sum, const vector<T> the_data) {
+inline T sum(T the_sum, const vector<T>& the_data) {
   the_sum = 0;
   int data_length = the_data.size();
   
