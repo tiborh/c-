@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1426455135 source:/home/tibor/Dropbox/c++/fltk_tutorial/main.cpp
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Box.H>
+	<FL/Fl_Button.H>
+	<iostream>
+	<vector>
+	<string>
+	"japanese_test.h"
+
+1426455181 source:/home/tibor/Dropbox/c++/fltk_tutorial/japanese_test.cpp
+	"japanese_test.h"
+
+1426449164 /home/tibor/Dropbox/c++/fltk_tutorial/japanese_test.h
+	<string.h>
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Choice.H>
+	<FL/Fl_Multiline_Output.H>
+
+1426534288 source:/home/etibhar/Dropbox/c++/fltk_tutorial/japanese_test.cpp
+	"japanese_test.h"
+
+1426449164 /home/etibhar/Dropbox/c++/fltk_tutorial/japanese_test.h
+	<string.h>
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Choice.H>
+	<FL/Fl_Multiline_Output.H>
+
+1426538009 source:/home/etibhar/Dropbox/c++/fltk_tutorial/main.cpp
+	"simple_ones.h"
+	"japanese_test.h"
+
+1426538009 /home/etibhar/Dropbox/c++/fltk_tutorial/simple_ones.h
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Box.H>
+	<FL/Fl_Button.H>
+	<iostream>
+	<vector>
+	<string>
+

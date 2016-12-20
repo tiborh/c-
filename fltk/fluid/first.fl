@@ -1,0 +1,48 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0303 
+header_name {.h} 
+code_name {.cxx}
+class CubeViewUI {open
+} {
+  Function {CubeViewUI()} {open
+  } {
+    Fl_Window mainWindow {open
+      protected xywh {1971 507 585 290} type Single visible
+    } {
+      Fl_Group {} {open
+        protected xywh {15 20 535 245}
+      } {
+        Fl_Group VChange {open
+          protected xywh {30 30 55 206}
+        } {
+          Fl_Roller vrot {
+            protected xywh {35 35 15 15}
+          }
+          Fl_Slider ypan {
+            label {slider:}
+            protected xywh {35 35 15 201}
+          }
+        }
+        Fl_Group HChange {open selected
+          protected xywh {15 45 310 220}
+        } {
+          Fl_Slider xpan {
+            label {slider:}
+            protected xywh {15 244 310 12}
+          }
+          Fl_Roller hrot {
+            protected xywh {15 230 305 15}
+          }
+        }
+        Fl_Group MainView {open
+          protected xywh {340 60 210 120}
+        } {
+          Fl_Box cframe {
+            label {This is the cube_view}
+            protected xywh {400 148 150 14}
+          }
+        }
+      }
+    }
+  }
+} 

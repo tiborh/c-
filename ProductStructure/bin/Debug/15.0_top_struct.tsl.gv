@@ -1,0 +1,13 @@
+graph "EA 15" {
+	graph [overlap=false];
+	node [shape=box];
+	"EA 15\nAVA 901 36" -- "EA 15 Functional Structure\nAVA 901 36/1" [key=e1to3];
+"EA 15\nAVA 901 36" -- "EEA 15 Realisation Structure\nAVA 901 36/2" [key=e1to13];
+"EA 15 Functional Structure\nAVA 901 36/1" -- "EA GUI\nCRA 119 1787/3" [key=e3to5];
+"EA 15 Functional Structure\nAVA 901 36/1" -- "EA Core and Probe\nCRA 119 1788/3" [key=e3to7];
+"EA 15 Functional Structure\nAVA 901 36/1" -- "platform\nCRA 119 1896/3" [key=e3to9];
+"EA 15 Functional Structure\nAVA 901 36/1" -- "Offline Data Analytics\nCRA 119 1947/3" [key=e3to11];
+"EEA 15 Realisation Structure\nAVA 901 36/2" -- "EEA 15 System Configuration\n1/AVA 901 36/2" [key=e13to15];
+"EEA 15 Realisation Structure\nAVA 901 36/2" -- "Offline Data Analytics\n2/AVA 901 36/2" [key=e13to17];
+"EEA 15 Realisation Structure\nAVA 901 36/2" -- "EA 15 CPI Configuration\n3/AVA 901 36/2" [key=e13to19];
+}

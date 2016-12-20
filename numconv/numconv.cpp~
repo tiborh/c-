@@ -1,0 +1,76 @@
+#include <iostream>
+#include <sstream>
+#include <map>
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+  string progcalled = argv[0];
+  string inbase = "dec";
+  string outbase = "dec";
+
+  typedef ios_base& (*FuncPointer)(ios_base&); // function pointer type
+  map<string,FuncPointer> fp;
+  fp.insert(make_pair("dec",&dec)); 
+  fp.insert(make_pair("oct",&oct)); 
+  fp.insert(make_pair("hex",&hex)); 
+
+  //cout << progcalled << '\n';
+  if (progcalled.rfind("dec2oct") != string::npos)
+    {
+      inbase = "dec";
+      outbase = "oct";
+      //cout << "dec2oct\n";
+    }
+  else if (progcalled.rfind("oct2dec") != string::npos)
+    {
+      inbase = "oct";
+      outbase = "dec";
+      //cout << "oct2dec\n";
+    }
+  else if (progcalled.rfind("dec2hex") != string::npos)
+    {
+      inbase = "dec";
+      outbase = "hex";
+      //cout << "dec2hex\n";
+    }
+  else if (progcalled.rfind("hex2dec") != string::npos)
+    {
+      inbase = "hex";
+      outbase = "dec";
+      //cout << "hex2dec\n";
+    }
+  else if (progcalled.rfind("hex2oct") != string::npos)
+    {
+      inbase = "hex";
+      outbase = "oct";
+      //cout << "hex2oct\n";
+    }
+  else if (progcalled.rfind("oct2hex") != string::npos)
+    {
+      inbase = "oct";
+      outbase = "hex";
+      //cout << "oct2hex\n";
+    }
+  else if (progcalled.rfind("numconv") != string::npos)
+    {
+      cout << "Number converter framework.\n";
+      cout << "Use the symbolic links to convert from one base to another.\n";
+      cout << "Command line arguments are accepted.\n";
+      return 0;
+    }
+  else
+    {
+      cout << "Undefined program name.";
+      return 1;
+    }
+  for(int i = 1; i < argc; i++)
+    {
+      int input_number;
+      stringstream(argv[i]) >> fp[inbase] >> input_number;
+      cout << argv[i] << " => ";
+      cout << fp[outbase] << input_number << endl;
+    }
+  return 0;
+}

@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int 数 = 0;
+  cout << "数：" << 数 << endl;
+
+  return 0;
+}

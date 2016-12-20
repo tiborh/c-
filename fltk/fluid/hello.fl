@@ -1,0 +1,47 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0303 
+header_name {.h} 
+code_name {.cxx}
+class hello {
+  comment {first fluid attempt} open
+} {
+  Function {hello(string title,string msg)} {
+    comment constructor open
+  } {}
+  Function {hello()} {
+    comment {default constructor} open
+  } {}
+  Function {make_window(string title, string msg)} {open
+  } {
+    Fl_Window hello_win {
+      label {Hello Window} open
+      xywh {50 50 200 150} type Double
+      code0 {Fl::visual(FL_DOUBLE|FL_RGB);}
+      code1 {hello_win->show(argc, argv);} visible
+    } {
+      Fl_Box hello_lbl {
+        label Hello
+        xywh {25 25 145 70} box ENGRAVED_BOX labelsize 40
+        class hello
+      }
+      Fl_Group {} {open
+        xywh {25 100 150 44}
+      } {
+        Fl_Return_Button {} {
+          label OK
+          callback {ecit(0);}
+          xywh {25 115 70 25}
+        }
+        Fl_Button {} {
+          label Cancel
+          callback {exit(1);}
+          xywh {105 115 70 25}
+        }
+      }
+    }
+  }
+  Function {show(int argc, char **argv)} {open
+  } {
+    code {make_window->show(argc,argv);} {}
+  }
+} 

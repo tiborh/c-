@@ -1,0 +1,49 @@
+#include <vector>
+#include <string>
+#include <iostream>
+#include <functional>
+//#include <algorithm>
+#include <list>
+
+using namespace std;
+
+vector<string> split(const char *str, list<char> delimiters)
+{
+    vector<string> result;
+
+    do
+    {
+        const char *begin = str;
+
+	// checks whether next character is delimiter or \0
+        while(!(find(delimiters.begin(), delimiters.end(), *str) != delimiters.end()) && *str) 
+            str++;
+
+        result.push_back(string(begin, str));
+    } while (0 != *str++);
+
+    return result;
+}
+
+void echo(string inputstr)
+{
+   if (inputstr.length() > 0)
+        cout << '|' << inputstr << '|' << endl;   // to examine leading and trailing space
+}
+
+int main(){
+
+  cout << "Reading until comma (Ctrl+D to finish): ";
+  string inputString = "";
+  list<char> delimiters = {',',' ', '\n' , '\t'}; // C++ 11
+
+  while (getline(cin,inputString))
+  {
+      vector<string> res = split(inputString.c_str(),delimiters);
+      // lambda expression (a.k.a. anonymous functor) C++ 11
+      for_each(res.begin(),res.end(),[](string s) { echo(s); } );
+  }
+
+  return 0;
+
+}

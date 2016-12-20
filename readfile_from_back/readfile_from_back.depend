@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1421610464 source:/home/tibor/Dropbox/c++/readfile_from_back/readfromback.cpp
+	<iostream>
+	<cstring>
+	<stack>
+	<fstream>
+	<iomanip>
+	<sstream>
+
+1421610714 source:/home/tibor/Dropbox/c++/readfile_from_back/main.cpp
+	<iostream>
+	"readfromback.h"
+
+1421609253 /home/tibor/Dropbox/c++/readfile_from_back/readfromback.h
+	<stack>
+

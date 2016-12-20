@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1420068986 source:/home/tibor/Dropbox/c++/class_templates/main.cpp
+	<iostream>
+	<string>
+	<cmath>
+	"item.h"
+	"pair.h"
+	"Array.h"
+
+1419701002 source:/home/tibor/Dropbox/c++/class_templates/src/item.cpp
+	"item.h"
+
+1420913570 /home/tibor/Dropbox/c++/class_templates/include/item.h
+	<iostream>
+
+1419789693 /home/tibor/Dropbox/c++/class_templates/include/class_templates.h
+
+1420913435 /home/tibor/Dropbox/c++/class_templates/include/pair.h
+	<cmath>
+	<string>
+
+1420924162 /home/tibor/Dropbox/c++/class_templates/include/Array.h
+	<string>
+	<sstream>
+

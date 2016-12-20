@@ -1,0 +1,187 @@
+# depslib dependency file v1.0
+1425465400 source:/home/etibhar/Dropbox/c++/ProductStructure/main.cpp
+	<iostream>
+	"tree.h"
+	"node.h"
+	"tests.h"
+	"util.h"
+	"line.h"
+	"line_collector.h"
+	<cassert>
+	<deque>
+
+1424295395 source:/home/etibhar/Dropbox/c++/ProductStructure/src/node.cpp
+	"node.h"
+
+1424333168 /home/etibhar/Dropbox/c++/ProductStructure/include/node.h
+	<deque>
+	<map>
+	<ostream>
+	<sstream>
+	<string>
+	<vector>
+	"line.h"
+
+1423164022 source:/home/etibhar/Dropbox/c++/ProductStructure/src/file_parser.cpp
+	"file_parser.h"
+
+1423164022 /home/etibhar/Dropbox/c++/ProductStructure/include/file_parser.h
+
+1425475351 source:/home/etibhar/Dropbox/c++/ProductStructure/src/tree.cpp
+	"tree.h"
+	<iostream>
+	<gvc.h>
+
+1425475362 /home/etibhar/Dropbox/c++/ProductStructure/include/tree.h
+	"node.h"
+	"line.h"
+
+1423357968 source:/home/tibor/Dropbox/c++/ProductStructure/main.cpp
+	<iostream>
+	"tree.h"
+	"node.h"
+	"tests.h"
+
+1423358882 /home/tibor/Dropbox/c++/ProductStructure/include/tree.h
+	"node.h"
+
+1423356448 /home/tibor/Dropbox/c++/ProductStructure/include/node.h
+	<deque>
+	<map>
+	<ostream>
+	<sstream>
+	<string>
+
+1423164022 source:/home/tibor/Dropbox/c++/ProductStructure/src/file_parser.cpp
+	"file_parser.h"
+
+1423164022 /home/tibor/Dropbox/c++/ProductStructure/include/file_parser.h
+
+1423357938 source:/home/tibor/Dropbox/c++/ProductStructure/src/node.cpp
+	"node.h"
+
+1423337319 source:/home/tibor/Dropbox/c++/ProductStructure/src/tree.cpp
+	"tree.h"
+	<iostream>
+
+1423329337 source:/home/tibor/Dropbox/c++/ProductStructure/src/node_test.cpp
+	<iostream>
+	"tests.h"
+
+1423329337 /home/tibor/Dropbox/c++/ProductStructure/include/tests.h
+	"node.h"
+	"tree.h"
+
+1423683294 /home/etibhar/Dropbox/c++/ProductStructure/include/tests.h
+	"node.h"
+	"tree.h"
+
+1424295906 source:/home/etibhar/Dropbox/c++/ProductStructure/src/node_test.cpp
+	<iostream>
+	"tests.h"
+	<cassert>
+
+1424205167 source:/home/etibhar/Dropbox/c++/ProductStructure/src/tree_test.cpp
+	<iostream>
+	"tests.h"
+	<cassert>
+	"util.h"
+
+1425465729 /home/etibhar/Dropbox/c++/ProductStructure/include/util.h
+	<iostream>
+	<map>
+	<fstream>
+	<string>
+	<cstring>
+	"tree.h"
+
+1425471320 source:/home/etibhar/Dropbox/c++/ProductStructure/src/util.cpp
+	<iostream>
+	"util.h"
+
+1423490382 /home/etibhar/Dropbox/c++/ProductStructure/src/util.cpp
+	<iostream>
+	"util.h"
+
+1423564792 source:/home/etibhar/Dropbox/c++/ProductStructure/src/parser.cpp
+	"parser.h"
+
+1423565632 /home/etibhar/Dropbox/c++/ProductStructure/include/parser.h
+	"util.h"
+
+1424114941 source:/home/etibhar/Dropbox/c++/ProductStructure/src/line.cpp
+	"line.h"
+	<iostream>
+
+1424293176 /home/etibhar/Dropbox/c++/ProductStructure/include/line.h
+	<string>
+	<sstream>
+	<deque>
+	<map>
+
+1424115166 source:/home/etibhar/Dropbox/c++/ProductStructure/src/line_test.cpp
+	"line.h"
+	<iostream>
+	<fstream>
+	<cassert>
+
+1424197574 source:/home/etibhar/Dropbox/c++/ProductStructure/src/input_processor.cpp
+	"input_processor.h"
+
+1424197543 /home/etibhar/Dropbox/c++/ProductStructure/include/input_processor.h
+	<iostream>
+	<fstream>
+	<sstream>
+	"util.h"
+
+1424200137 /home/etibhar/Dropbox/c++/ProductStructure/include/line_collector.h
+	"line.h"
+	<deque>
+	<iostream>
+
+1424200137 source:/home/etibhar/Dropbox/c++/ProductStructure/src/line_collector.cpp
+	"line_collector.h"
+
+1417750153 /usr/include/graphviz/gvc.h
+	"types.h"
+	"gvplugin.h"
+
+1417750152 /usr/include/graphviz/types.h
+	<stdio.h>
+	<assert.h>
+	<signal.h>
+	"geom.h"
+	"gvcext.h"
+	"pathgeom.h"
+	"textspan.h"
+	"cgraph.h"
+	"usershape.h"
+
+1417750152 /usr/include/graphviz/geom.h
+	"arith.h"
+
+1417750152 /usr/include/graphviz/arith.h
+	<limits.h>
+	<values.h>
+	<math.h>
+
+1417750153 /usr/include/graphviz/gvcext.h
+
+1417750151 /usr/include/graphviz/pathgeom.h
+
+1417750152 /usr/include/graphviz/textspan.h
+
+1417750151 /usr/include/graphviz/cgraph.h
+	"cdt.h"
+
+1417750151 /usr/include/graphviz/cdt.h
+	"config.h"
+	<stddef.h>
+	<string.h>
+
+1417750152 /usr/include/graphviz/usershape.h
+	"cdt.h"
+
+1417750153 /usr/include/graphviz/gvplugin.h
+	"gvcext.h"
+

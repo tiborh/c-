@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1424806235 source:/home/etibhar/Dropbox/c++/ClassStudy/main.cpp
+	<iostream>
+	"MemoryBlock.h"
+
+1424809276 /home/etibhar/Dropbox/c++/ClassStudy/include/MemoryBlock.h
+	<algorithm>
+	<cstdlib>
+	<ctime>
+	<iostream>
+
+1424806420 source:/home/etibhar/Dropbox/c++/ClassStudy/src/MemoryBlock.cpp
+	"MemoryBlock.h"
+

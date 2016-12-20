@@ -1,0 +1,19 @@
+
+*** These modified files were found in JOE when it aborted on Sun Dec 21 22:14:18 2014
+*** JOE was aborted by UNIX signal 1
+
+*** File 'Makefile'
+CFLAGS=-std=c++11 -Wall -Werror
+
+*** File '(Unnamed)'
+hopedale.txt
+japanese.c
+init.el
+/home/tibor/Dropbox/c++/stack.h
+addnumbers.txt
+gcd.dat
+quadratic.dat
+/home/tibor/Dropbox/c++/numconv/restore_links.sh
+/home/tibor/Dropbox/c/sample_contract.csv
+Makefile
+Makefile

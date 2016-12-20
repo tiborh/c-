@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  char c = 'A';
+  int i = 3, j = 1, k = -2, m = 0;
+  bool p = false, q = true;
+
+  cout << '\'' << c << "' is integer value " << int(c)
+       << " and '!" << c << "' is " << !c << endl;
+
+  return 0;
+}

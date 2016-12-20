@@ -1,0 +1,78 @@
+//#define __cplusplus 201103L // for c++11
+//#define __cplusplus 199711L // for c++98 and c++03
+
+#include <iostream>
+//#include <algorithm>  // e.g. split
+//#include <cassert> // assert()
+//#include <climits> // e.g. INT_MAX
+//#include <cmath>
+//#include <cstdio>
+//#include <cstdlib> // e.g. for srand(time(NULL)) and rand()
+//#include <cstring> // e.g. for strlen
+//#include <ctime>   // for time operation
+//#include <deque>	       // double linked list
+//#include <exception>
+//#include <fstream> // file operations
+#include <functional> // for lambda
+//#include <iomanip> // e.g. setw, setprecision, setfill, setbase
+//#include <limits>  // e.g. numeric_limits<streamsize>::max()
+//#include <list>
+//#include <sstream> // stringstream
+//#include <stack>  // for single-linked lists
+//#include <string>
+//#include <sys/types.h> // for stat
+//#include <sys/stat.h> // for stat
+#include <typeinfo> // for typeid
+//#include <unistd.h>
+//#include <vector>
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+  // the simplest one, prints nothing
+  auto L0 = [] {
+    cout << "hello lambda" << '\n';
+  };
+  auto L1 = [] {
+    cout << "another lambda" << '\n';
+  };
+
+  // now it runs
+  [] {
+    cout << "hello lambda" << '\n';
+  }();
+
+  //and now this one too:
+  L0();
+  cout << "typeid of L0: " << typeid(L0).name() << '\n';
+  cout << "typeid of L1: " << typeid(L1).name() << '\n';
+
+  // one syntax:
+  [] {};
+
+  // the other syntax:
+  [] () {};
+
+  auto L2 = [] (const char* s) {
+    cout << s << '\n';
+  };
+
+  L2("hello lambda");
+
+  // return type of lambda:
+  auto N0 = [] {
+    return 42;
+  }();
+
+  cout << "typeid of N0 (" << N0 << "): " << typeid(N0).name() << '\n';
+
+  // specifying the type:
+  auto N1 = [] () -> double {
+    return 42;
+  }();
+
+  cout << "typeid of N1 (" << N1 << "): " << typeid(N1).name() << '\n';
+
+  return 0;
+}

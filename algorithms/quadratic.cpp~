@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+  int a, b, c, discr, how_many;
+  a = b = c = discr = how_many = 0;
+  double sq_disc, root1, root2;
+  sq_disc = root1 = root2 = 0.0;
+
+  cout << "\nCalculating roots of quadratic equation."
+
+  cout << "\nHow many sets? ";
+  cin >> how_many;
+  cout << "(" << how_many << ")\n";
+
+  for(int i = 0; i < how_many; i++)
+    {
+      cin >> a >> b >> c;
+      discr = b * b - 4 * a * c;
+      if ((discr > 0) && (sq_disc = sqrt(discr)))
+	{
+	  root1 = (-b + sq_disc) / (2 * a);
+	  root2 = (-b - sq_disc) / (2 * a);
+	}
+      else if (discr < 0)
+	{
+	  cout << "Square roots have not been implemented."
+	}
+      else
+	root1 = root2 = -b / (2 * a);
+    }
+
+  return 0;
+}

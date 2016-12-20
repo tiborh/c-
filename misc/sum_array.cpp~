@@ -1,0 +1,27 @@
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;		// This is the price of generic: you cannot use "using namespace std"
+
+template<class T>
+T sum_array(T data[], int size)
+{
+  T sum = 0;
+  for (int i = 1; i < size; i++)
+    {
+      cout << *(numbers+i) << endl;
+      sum += *(numbers+i);
+    }
+
+  cout << "The sum of the numbers: " << sum << ".\n";
+
+  return sum;
+}
+
+
+int main() {
+
+
+  return 0;
+}

@@ -1,0 +1,14 @@
+
+Program gcd in C++
+How many pairs? 
+Enter two integers: 
+gcd(4, 6) = 2
+
+Enter two integers: 
+gcd(6, 21) = 3
+
+Enter two integers: 
+gcd(8, 20) = 4
+
+Enter two integers: 
+gcd(15, 20) = 5

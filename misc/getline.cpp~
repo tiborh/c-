@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  cout << "Reading until comma: ";
+  string inputString = "";
+  getline(inputString,',');
+  cout << inputString << endl;
+
+  return 0;
+}

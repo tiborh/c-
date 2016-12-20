@@ -1,0 +1,42 @@
+#define __cplusplus 201103L // for c++11
+//#define __cplusplus 199711L // for c++98 and c++03
+
+#include <iostream>
+//#include <algorithm>  // e.g. split
+//#include <cassert> // assert()
+//#include <climits> // e.g. INT_MAX
+//#include <cmath>
+//#include <cstdio>
+//#include <cstdlib> // e.g. for srand(time(NULL)) and rand()
+//#include <cstring> // e.g. for strlen
+//#include <ctime>   // for time operations
+//#include <exception>
+#include <fstream> // file operations
+//#include <functional> // for lambda
+//#include <iomanip> // e.g. setw, setprecision, setfill, setbase
+//#include <limits>  // e.g. numeric_limits<streamsize>::max()
+//#include <list>
+//#include <sstream> // stringstream
+//#include <string>
+//#include <typeinfo> // for typeid
+//#include <unistd.h>
+//#include <vector>
+
+using namespace std;
+
+void openmode_int()
+{
+  cout << "ios::in: " << ios::in << endl;
+  cout << "ios::out: " << ios::out << endl;
+  cout << "ios::app: " << ios::app << endl;
+  cout << "ios::trunc: " << ios::trunc << endl;
+  cout << "ios::ate: " << ios::ate << endl;
+  cout << "ios::binary: " << ios::binary << endl;
+}
+
+int main()
+{
+  openmode_int();
+
+  return 0;
+}

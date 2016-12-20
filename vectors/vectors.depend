@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1418641753 source:/home/tibor/Dropbox/c++/vectors/main.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<stdexcept>
+	<cstring>
+

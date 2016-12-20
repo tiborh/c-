@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  const double yard2meter = 0.9144;
+  double yards = 0.0;
+  cin >> yards;
+  double meters = yards * yard2meter;
+  cout << meters;
+
+  return 0;
+}

@@ -1,0 +1,1 @@
+fltk-config --compile <your_file>.cpp

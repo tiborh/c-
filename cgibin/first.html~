@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>題名「だいめい」</title>
+<style>
+.jp {
+font-family: "AoyagiKouzanFontT","AoyagiSosekiFont2",Mincho;
+}
+</style>
+</head>
+<body>
+  <h1>章「しょう」</h1>
+  <p>今日は！</p>
+  <p>C++ テスト</p>
+<form action="cgi-bin/first">
+  <input type="submit" value="出す（だす）">
+</form>
+</body>
+</html>

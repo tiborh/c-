@@ -1,0 +1,26 @@
+#include <FL/Fl.H>
+#include <FL/Fl_Multiline_Output.H>
+
+int main()
+{
+  Fl_Multiline_Output output(0,0,500,500);
+
+// CLEAR OUTPUT
+output->value("");
+
+// SET OUTPUT
+output->value("one\ntwo");          // fltk does strdup() internally       
+
+// APPENDING OUTPUT
+//     Would be nice if this were an add() method in fltk ;)
+//
+char *news = "Add this text";
+char *cat = (char*)malloc(strlen(output->value()) + 
+i                         strlen(news) + 1);
+strcpy(cat, output->value());
+strcat(cat, news);
+output->value(cat);
+free(cat);
+
+return Fl::run(); 
+}

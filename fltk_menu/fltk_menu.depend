@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1428935855 source:/home/etibhar/Dropbox/c++/fltk_menu/main.cpp
+	"include/the_menu.h"
+	"include/a_browser.h"
+	<iostream>
+
+1428934259 /home/etibhar/Dropbox/c++/fltk_menu/include/the_menu.h
+	<cstdio>
+	<cstring>
+	<cstdlib>
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Menu_Bar.H>
+
+1428935855 source:/home/etibhar/Dropbox/c++/fltk_menu/src/the_menu.cpp
+	"../include/the_menu.h"
+
+1428935652 source:/home/etibhar/Dropbox/c++/fltk_menu/src/a_browser.cpp
+	"a_browser.h"
+
+1428936012 /home/etibhar/Dropbox/c++/fltk_menu/include/a_browser.h
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Browser.H>
+

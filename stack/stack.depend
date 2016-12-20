@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1415916339 source:/home/etibhar/Dropbox/c++/stack_test.cpp
+	"stack.h"
+	<iostream>
+
+1415916310 /home/etibhar/Dropbox/c++/stack.h
+

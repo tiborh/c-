@@ -1,0 +1,24 @@
+AVA 901 36/2	R1A	EEA 15 Realisation Structure	15.0
+. 1/AVA 901 36/2	R1A	EEA 15 System Configuration	15.0
+. . CXP 903 0593/3	R1A	EEA Probe	15.0
+. . CXP 903 0698/3	R1A	EEA 15 GUI	15.0
+. . 1/CXP 902 1964	R1A	OS	
+. . 2/CXP 902 1964	R1A	OS	
+. . CXP 902 1966	R1A	Linux Extensions	
+. . CXP 902 2501	R1A	App Server	
+. . CXP 902 5320	R1A	License Server	
+. . CXP 902 5321	R1B	SUF	
+. . CXP 902 1968	R1D	OAM Software	
+. . CXP 902 5322	R1A	OSINIT	
+. . CXR 101 1825/1	R1A	NGEE 1.0 EP01	NGEE 1.0 EP01
+. . CXP 903 1531/3	R1A	EEA 15 correlator and adapters	EEA 15.0
+. . CXP 903 1564/3	R1A	EEA 15 AESR	
+. . CXP 903 1616/3	R1A	Probe OS	
+. . CXR 101 1865	R1A	Platform Patches EP02	ICP1 EP1
+. . CXR 101 1916	R1A	Platform Patches EP04	
+. 2/AVA 901 36/2	R1A	Offline Data Analytics	15.0
+. . CXP 903 1532/3	R1A	Offline Data Analytics	EEA 15.0
+. . CXP 903 1593/3	R1A	MapR 3PP	
+. 3/AVA 901 36/2	R1A	EA 15 CPI Configuration	15.0
+. . EN/LZN 765 0190/1	R1A	Ericsson Expert Analytics EEA 15 CPI Library	
+. . EN/LZN 765 0190/2	R1A	Ericsson Expert Analytics EEA 15 Support Library	

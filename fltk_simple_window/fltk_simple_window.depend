@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1426626120 source:/home/etibhar/Dropbox/c++/fltk_simple_window/main.cpp
+	"SimpleWindow.h"
+
+1426627353 /home/etibhar/Dropbox/c++/fltk_simple_window/include/SimpleWindow.h
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Button.H>
+	<FL/Fl_Input.H>
+	<FL/Fl_Output.H>
+

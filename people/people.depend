@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1416169782 source:/home/tibor/Dropbox/c++/people/main.cpp
+	<iostream>
+	<cstring>
+	"person.h"
+	"Student.h"
+
+1416169085 source:/home/tibor/Dropbox/c++/people/src/person.cpp
+	"person.h"
+	<iostream>
+	<sstream>
+	<string>
+	<cstdio>
+
+1416162125 /home/tibor/Dropbox/c++/people/include/person.h
+
+1416168992 source:/home/tibor/Dropbox/c++/people/src/Student.cpp
+	"Student.h"
+
+1416168080 /home/tibor/Dropbox/c++/people/include/Student.h
+	"person.h"
+

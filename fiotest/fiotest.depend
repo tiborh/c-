@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1420208317 source:/home/etibhar/Dropbox/c++/fiotest/file_checks.cpp
+	<iostream>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<cstdio>
+
+1421710557 source:/home/etibhar/Dropbox/c++/fiotest/main.cpp
+	<iostream>
+	<iomanip>
+	<cmath>
+	<cstring>
+	<fstream>
+	<sstream>
+	<deque>
+	"file_checks.h"
+	"open_file.h"
+
+1420207017 /home/etibhar/Dropbox/c++/fiotest/fiotest.h
+
+1421188540 /home/etibhar/Dropbox/c++/fiotest/file_checks.h
+	<fstream>
+	<unistd.h>
+
+1421188518 source:/home/tibor/Dropbox/c++/fiotest/file_checks.cpp
+	<iostream>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<cstdio>
+	<fstream>
+
+1421172567 /home/etibhar/Dropbox/c++/fiotest/open_file.h
+	<fstream>
+
+1421189100 source:/home/etibhar/Dropbox/c++/fiotest/open_file.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+
+1421189100 source:/home/tibor/Dropbox/c++/fiotest/open_file.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+
+1421188952 source:/home/tibor/Dropbox/c++/fiotest/main.cpp
+	<iostream>
+	<iomanip>
+	<cmath>
+	<cstring>
+	<fstream>
+	<sstream>
+	"file_checks.h"
+	"open_file.h"
+
+1421188540 /home/tibor/Dropbox/c++/fiotest/file_checks.h
+	<fstream>
+	<unistd.h>
+
+1421172567 /home/tibor/Dropbox/c++/fiotest/open_file.h
+	<fstream>
+

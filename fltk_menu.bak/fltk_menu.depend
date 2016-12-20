@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1427212580 source:/home/etibhar/Dropbox/c++/fltk_menu/main.cpp
+	"include/the_menu.h"
+
+1427211959 /home/etibhar/Dropbox/c++/fltk_menu/include/the_menu.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Menu_Bar.H>
+

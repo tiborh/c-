@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1419373658 source:/home/tibor/Dropbox/c++/cards/main.cpp
+	<iostream>
+	"include/deck.h"
+	"include/card.h"
+
+1419373776 source:/home/tibor/Dropbox/c++/cards/src/deck.cpp
+	<cstdlib>
+	<ctime>
+	"deck.h"
+	"hand.h"
+
+1419372748 /home/tibor/Dropbox/c++/cards/include/deck.h
+	<iostream>
+	<vector>
+	"../cards.h"
+	"card.h"
+	"hand.h"
+
+1419367141 /home/tibor/Dropbox/c++/cards/cards.h
+
+1419372417 /home/tibor/Dropbox/c++/cards/include/card.h
+	<iostream>
+	"../cards.h"
+	"pips.h"
+
+1419372417 /home/tibor/Dropbox/c++/cards/include/pips.h
+	<iostream>
+	"../cards.h"
+
+1419373704 source:/home/tibor/Dropbox/c++/cards/src/hand.cpp
+	"hand.h"
+
+1419373607 /home/tibor/Dropbox/c++/cards/include/hand.h
+	<vector>
+	"card.h"
+

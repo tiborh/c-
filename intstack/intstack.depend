@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1415916148 source:/home/tibor/Dropbox/c++/intstack.cpp
+	<iostream>
+	"intstack.h"
+
+1415916181 /home/tibor/Dropbox/c++/intstack.h
+
+1415916227 source:/home/tibor/Dropbox/c++/intstack_test.cpp
+	"intstack.h"
+	<iostream>
+
