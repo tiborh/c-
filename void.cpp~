@@ -1,0 +1,9 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+  int i = 12;
+  int* pt_i = &i;
+  void *gp = pt_i;
+}
