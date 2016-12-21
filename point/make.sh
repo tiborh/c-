@@ -6,7 +6,8 @@ if [ "$#" -ne 1 ]; then
 fi
 
 CPPFLAGS="-std=c++11 -Wall -Werror"
-LDFLAGS="-lpqxx -lpq"
+LDFLAGS=""
+#LDFLAGS="-lpqxx -lpq"
 cppfiles=*.cpp
 headerfiles=*.h
 
