@@ -1,0 +1,11 @@
+#include <iostream>
+
+extern double circle(double);
+
+int main(int argc, char** argv) {
+    double x = 0.0;
+    std::cout << "argc: " << argc << std::endl;
+
+    std::cout << circle(x) << " is the area of a circle of radius " 
+	<< x << std::endl;
+}
