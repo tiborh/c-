@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int anInt = new int(4);
+
+  cout << "an integer: " << anInt << endl;
+
+  delete(anInt);
+
+  
+  return 0;
+}
