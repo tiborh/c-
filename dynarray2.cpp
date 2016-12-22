@@ -23,7 +23,7 @@ int dynarray_tester() {
   //   cout << data[i] << " ";
   // cout << endl;
 
-  delete(data);
+  delete[] data;
 
   return(ARRAY_SIZE);
 }

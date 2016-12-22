@@ -1,0 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
+struct something {
+  something* address() { return this; }
+}

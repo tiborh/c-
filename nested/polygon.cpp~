@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+class polygon {
+  int num_of_points;
+  Points[] points;
+  Line[] connectors;
+  struct Line {
+    Point a,b;
+  };
+  struct Point {
+    double x,y;
+  };
+public:
+  polygon(int npoints, double[npoints][2] coords) {
+    
+  }
+  void add_lines(int nlines, char[nlines][2] connexions) {
+
+  }
+}

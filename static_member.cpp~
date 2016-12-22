@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
+struct Id {
+  Id(): id(_idcount++) {}
+private:
+  static int _idcount = 0;
+  int id;
+}

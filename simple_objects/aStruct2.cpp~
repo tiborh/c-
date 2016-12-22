@@ -1,0 +1,28 @@
+#include <iostream>
+#include <ostream>
+
+using namespace std;
+
+// by default, members are public
+struct Point {
+  double x,y;
+  Point() : x(0),y(0) {};
+  Point(double x, double y) : x(x),y(y) {};
+  void swap();
+};
+
+void Point::swap() {
+  double temp = this->x;
+  this->x = this->y;
+  this->y = temp;
+}
+
+ostream& operator<<(ostream& out, const Point& aPoint) {
+  out << "(" << aPoint.x << ", " << aPoint.y << ")";
+  return out;
+}
+
+int main() {
+
+  return 0;
+}

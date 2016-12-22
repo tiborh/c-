@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
+struct something {
+  int a;
+  mutable int b;
+  something(int a, int b): a(a),b(b) {};
+};
+

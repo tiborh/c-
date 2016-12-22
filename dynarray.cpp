@@ -22,7 +22,7 @@ int main() {
     cout << data[i] << " ";
   cout << endl;
 
-  delete(data);
+  delete[] data;
 
   return 0;
 }

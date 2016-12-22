@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+void give_value(int& i) const {
+  static int stored = 0;
+  i = stored++;
+}
+
+int main() {
+  
+  
+  return 0;
+}
