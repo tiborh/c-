@@ -21,7 +21,7 @@ class Polygon {
       y = p1.y;
     }
     string print() {
-      ostringstream os;
+        ostringstream os;
       os << "(" << x << ", " << y << ")";
       return os.str();
     }

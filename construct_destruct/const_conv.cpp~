@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+struct pr_char {
+  pr_char(int i = 0) : c(i % 128) {}
+  void print() const { cout << rep[c]; }
+private:
+  int c;
+  static const char* rep[128];
+};
+
+int main() {
+
+  return 0;
+}
