@@ -1,0 +1,11 @@
+#include <iostream>
+
+union int_dbl {
+  int i;
+  double x;
+} n = {0};
+
+int main() {
+  cout << "i: " << n.i << endl;
+  cout << "x: " << n.x << endl;
+  
