@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1482597998 source:/home/pi/repos/cplusplus/my_string/main.cpp
+	<iostream>
+	"collector.h"
+
+1482598698 /home/pi/repos/cplusplus/my_string/include/collector.h
+	<ostream>
+	<cstring>
+	<cassert>
+

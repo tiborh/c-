@@ -9,7 +9,7 @@ struct something {
   something(int a, int b): a(a),b(b) {};
 };
 
-ostream& operator<<(ostream& os, something so) {
+ostream& operator<<(ostream& os, const something& so) {
   os << "a: " << so.a << ", b: " << so.b;
   return os;
 }
