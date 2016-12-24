@@ -1,0 +1,17 @@
+#include <iostream>
+
+struct simplest {
+  int i;
+  simplest(int i = 0): i(i) {}
+  simplest(const simplest& other) {
+    simplest out = simplest(other.i);
+    return out;
+  }
+};
+
+using namespace std;
+
+int main() {
+
+  return 0;
+}

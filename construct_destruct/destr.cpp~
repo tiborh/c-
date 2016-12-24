@@ -1,0 +1,21 @@
+#include <iostream>
+
+struct a {
+  int* a;
+  a(int a = 0; int b = 0) {
+    this->a = new int[2];
+    this->a[0] = a;
+    this->a[1] = b;
+  }
+  ~a() {delete[] a;}
+};
+
+using namespace std;
+
+int main() {
+  a a1 = a(1,2);
+  cout << "destructor to 'a' is needed because it has been constructed dynamically.\n";
+  cout << "a1.a[0]: " << a1.a[0] << ", a1.a[1]: " << a1.a[1] << endl;
+  
+  return 0;
+}

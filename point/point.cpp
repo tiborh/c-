@@ -1,17 +1,18 @@
 #include "point.h"
 
 // constructors
-point::point(double x, double y) : x(x), y(y) {}
-point::point() : x(0.0),y(0.0) {}
+point::point(const double& x, const double& y) : x(x), y(y) {}
   
 // getters
-double point::getx() {return x;}
-double point::gety() {return y;}
-std::pair<double,double> point::get() { return std::pair<double,double>(x,y); }
+double point::getx() const {return x;}
+double point::gety() const {return y;}
+std::pair<double,double> point::get() const {
+  return std::pair<double,double>(x,y);
+}
 
 //setters
-void point::setx(double v) { x = v; }
-void point::sety(double v) { y = v; }
+void point::setx(const double& v) { x = v; }
+void point::sety(const double& v) { y = v; }
 
 //operators
 point point::operator+ (const point& other) {

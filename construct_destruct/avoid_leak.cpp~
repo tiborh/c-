@@ -1,0 +1,13 @@
+#include <iostream>
+
+struct collector {
+  int len;
+  collector(): 
+};
+
+using namespace std;
+
+int main() {
+
+  return 0;
+}

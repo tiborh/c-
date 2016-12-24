@@ -6,15 +6,14 @@
 class point {
  public:
   // constructors
-  point();
-  point(double,double);
+  point(const double& x = 0.0, const double& y = 0.0);
   // getters
-  double getx();
-  double gety();
-  std::pair<double,double> get();
+  double getx() const;
+  double gety() const;
+  std::pair<double,double> get() const;
   // setters
-  void setx(double);
-  void sety(double);
+  void setx(const double&);
+  void sety(const double&);
   // operators
   point operator+ (const point&);
  private:
