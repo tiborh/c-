@@ -1,0 +1,17 @@
+#include "dbl_vect.h"
+#include <cassert>
+
+dbl_vect::dbl_vect(int n) : vect_size(n) {
+  assert(n > 0);
+  p = new double[vect_size];
+  assert(p != 0);
+}
+double& dbl_vect::at(int i) {
+  assert (i >= 0 && i < size);
+  return p[i];
+}
+double dbl_vect::get(int i) const {
+  assert (i >= 0 && i < size);
+  double out = p[i];
+  return out;
+}

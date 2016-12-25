@@ -1,0 +1,11 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  dbl_vect a = dbl_vect(5);
+  cout << "'a' after creation: " << a << endl;
+  
+  
+  return 0;
+}
