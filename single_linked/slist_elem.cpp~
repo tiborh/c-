@@ -1,0 +1,6 @@
+#include "slist_elem.h"
+
+std::ostream& operator<<(std::ostream& os, const slist_elem& se) {
+  os << se.get_c() << "next at: " << se.get_na();
+  return os;
+}

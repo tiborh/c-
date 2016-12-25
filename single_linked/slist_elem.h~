@@ -1,0 +1,19 @@
+#ifndef SLIST_ELEM_H
+#define SLIST_ELEM_H
+
+#include <ostream>
+
+struct slist_elem {
+slist_elem(char inc) : c(inc),next_elem(0) {}
+slist_elem(char inc, slist_elem* inna) : c(inc),na(inna) {}
+slist_elem(const slist_elem& other) : c(other.get_c()),next_elem(other.get_na) {}
+  char get_c() const { return c; }
+  slist_elem* get_na() const { return next_elem; }
+  void set_na(slist_elem* ne) { next_elem = ne; }
+  void set_c(const char& inc) { c = inc; }
+private:
+  char c;
+  slist_elem* na;
+};
+
+#endif //SLIST_ELEM_H

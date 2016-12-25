@@ -2,20 +2,24 @@
 
 // constructors:
 slist::slist() : na(0) {}
-slist::slist(slist_elem se) : na(&se) { se.next = 0; }
+slist::slist(slist_elem se) {
+  na = &se;
+  se.set_na(0); }
 slist::slist(char c) {
-  slist_elem new_elem = {c,0};
-  na = &new_elem;
+  slist_elem* new_elem = new slist_elem(c);
+  na = new_elem;
 }
+
 // destructor:
 slist::~slist() { erase(); }
+
 // methods:
 void slist::add(char c) {
-  slist_elem new_elem = {c,na};
-  na = &new_elem;
+  slist_elem* new_elem = new slist_elem{c,na};
+  na = new_elem;
 }
 void slist::del() {
-  slist_elem* tempa = (*na).next;
+  slist_elem* tempa = na->get_na();
   delete(na);
   na = tempa;
 }
@@ -23,34 +27,35 @@ void slist::erase() {
   while(na != 0)
     del();
 }
-char slist::first_char() const { return((*na).c); }
-slist_elem slist::pop() {
-  slist_elem* temp = na;
-  slist_elem* tempa = na->next;
-  temp->next = 0;
-  //delete(*na);
-  na = tempa;
-  return *temp;
+void slist::push(slist_elem* se) {
+  slist_elem* new_elem = new slist_elem(*se);
+  new_elem->set_na(na);
+  na = new_elem;
 }
-void slist::push(slist_elem se) {
-  se.next = na;
-  na = &se;
+slist_elem* slist::pop() {
+  slist_elem* out = na;
+  na = na->get_na();
+  out->set_na(0);
+  return out;
 }
 void slist::reverse() {
-  slist_elem* temp_na = 0;
-  do {
-    slist_elem* saved_na = na->next;
-    na->next = temp_na;
-    temp_na = na;
-    na = saved_na;
-  } while(na != 0);
+  slist_elem* temp = na;
+  na = 0;
+  while(temp != 0) {
+    slist_elem* temp_na = temp->get_na();
+    temp->set_na(na);
+    na = temp;			// could be skipped with a more intelligent code
+    temp = temp_na;
+  }
 }
 
+// external method:
 std::ostream& operator<<(std::ostream& os, const slist& sl) {
-  slist_elem* temp = sl.first_address();
+  slist_elem* temp = sl.top();
   while(temp != 0) {
-    os << (*temp).c << " ";
-    temp = sl.first_address();
+    os << temp->get_c() << " -> ";
+    temp = temp->get_na();
   }
+  os << '0';
   return os;
 }
