@@ -2,9 +2,11 @@
 
 // constructors:
 slist::slist() : na(0) {}
-slist::slist(slist_elem se) {
-  na = &se;
-  se.set_na(0); }
+slist::slist(const slist_elem& se) {
+  slist_elem* new_elem = new slist_elem(se);
+  na = new_elem;
+  new_elem->set_na(0);
+}
 slist::slist(char c) {
   slist_elem* new_elem = new slist_elem(c);
   na = new_elem;
@@ -27,7 +29,7 @@ void slist::erase() {
   while(na != 0)
     del();
 }
-void slist::push(slist_elem* se) {
+void slist::push(const slist_elem* se) {
   slist_elem* new_elem = new slist_elem(*se);
   new_elem->set_na(na);
   na = new_elem;

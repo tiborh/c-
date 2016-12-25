@@ -5,11 +5,16 @@
 using namespace std;
 
 int main() {
+  slist_elem* a0e = new slist_elem();
+  cout << "default constructor: " << *a0e << endl;
   slist_elem* ae = new slist_elem('a');
   cout << "slist elem with no next address: " << *ae << endl;
   slist_elem* be = new slist_elem('b');
   be->set_na(ae);
   cout << "another elem: " << *be << endl;
+  slist_elem* de = new slist_elem(*be);
+  cout << "copy-constructed elem: " << *de << endl;
+  
   slist a = slist();
   cout << "empty list created: " << a << "(done)" << endl;
   cout << "is empty? " << boolalpha << a.is_empty() << endl;

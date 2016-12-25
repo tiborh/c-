@@ -6,14 +6,14 @@
 struct slist {
   slist();
   slist(char);
-  slist(slist_elem);
+  slist(const slist_elem&);
   ~slist();
   void add(char);
   void del();
   void erase();
   slist_elem* top() const { return na; }
   slist_elem* pop();
-  void push(slist_elem*);
+  void push(const slist_elem*);
   void reverse();
   bool is_empty() { return(na == 0); }
 private:
