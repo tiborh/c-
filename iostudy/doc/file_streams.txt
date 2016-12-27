@@ -1,0 +1,12 @@
+File I/O is handled by including fstream, which contains the classes
+ofstream and ifstream for output and input file-stream creation and manipulation. To
+properly open and manage an ifstream or ofstream related to a system file, you must first
+declare it with an appropriate constructor.
+
+ifstream();
+ifstream(const char*, int = ios::in, int prot = filebuf::openprot);
+ofstream();
+ofstream(const char*, int = ios::out, int prot = filebuf::openprot);
+
+The constructor of no arguments creates a variable that is later associated
+with an input file.

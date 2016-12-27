@@ -1,0 +1,10 @@
+C 	C++ 	Name 			Connected To
+------------------------------------------------------
+stdin 	cin 	Standard input file 	Keyboard
+stdout 	cout 	Standard output file 	Screen
+stderr 	cerr 	Standard error file 	Screen
+	clog(*)	Standard log file	Screen
+stdprn 	cprn 	Standard printer file 	Printer
+stdaux 	caux 	Standard auxiliary file Auxiliary port
+
+(*) a bufferred version of cerr

@@ -1,0 +1,14 @@
+File Modes:
+
+Argument 	Mode
+--------------------------------------------
+ios::in 	Input mode
+ios::app 	Append mode
+ios::out 	Output mode
+ios::ate 	Open and seek to end-of-file
+ios::nocreate 	Open but do not create mode
+ios::trunc 	Discard contents and open
+ios::noreplace 	If file exists, open fails
+
+Thus, the default for an ifstream is input mode, and the default for an
+ofstream is output mode.

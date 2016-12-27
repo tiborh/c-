@@ -1,0 +1,9 @@
+Other important member functions found in fstream include
+
+// Opens ifstream file
+void open(const char*, int = ios::in, int prot = filebuf::openprot);
+
+// Opens ofstream file
+void open(const char*, int = ios::out, int prot= filebuf::openprot);
+
+void close();

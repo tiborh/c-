@@ -1,0 +1,11 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  cout << "Reading a single char: ";
+  char ch1 = 0;
+  cin.get(ch1);
+  cout << "read in: " << ch1 << '\n';
+  return 0;
+}
