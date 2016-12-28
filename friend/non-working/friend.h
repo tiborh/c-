@@ -1,0 +1,10 @@
+#ifndef FRIEND_H_INCLUDED
+#define FRIEND_H_INCLUDED
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <ctime>
+#include "twam.h"
+#include "twem.h"
+#include "twim.h"
+#endif //FRIEND_H_INCLUDED

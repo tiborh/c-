@@ -1,0 +1,8 @@
+class twem {
+  char* internal_string;
+  friend void foo();
+  char * get_str_pt() {
+    return internal_string;
+  }
+  friend void twam::make_str(const char *);
+};

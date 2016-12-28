@@ -1,0 +1,16 @@
+class twam {
+  friend class twim;
+  int i;
+  char* ch;
+  int magic() {
+    int i = rand();
+    return i;
+  }
+  char* get_str_pt() { return ch; }
+  void make_str(const char *instr) {
+    twem a = twem();
+    a.internal_string = new char[strlen(instr) + 1];
+    strcpy(a.internal_string,instr);
+    ch = a.internal_string;
+  }
+};

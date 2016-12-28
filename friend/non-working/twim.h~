@@ -1,0 +1,8 @@
+
+struct twim {
+public:
+  static int gen_num() {
+    twam a = twam();
+    return a.magic();
+  }
+}
