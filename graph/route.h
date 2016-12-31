@@ -2,8 +2,10 @@
 #define ROUTE_H_INCLUDED
 
 #include <cassert>
+#include <iostream>
+#include <ostream>
 
-class point;
+class point;			// route may be better off as a subclass of point
 
 class route {
 public:
@@ -15,7 +17,9 @@ public:
   {
     assert(from_point != 0 && to_point != 0 && route_weight != 0);
   }
-  point* where_to() const { return to; }
+  //~route() { std::cout << "\n\t\troute destruction\n"; } // comment out to avoid "double free or corruption"
+  point* get_origin() const { return from; }
+  point* get_destination() const { return to; }
   double get_weight() const { return weight; }
   bool is_trodden() const { return trodden; }
   void tread() {
@@ -23,6 +27,12 @@ public:
     trodden = true;
   }
   void reset() { trodden = false; }
+  int operator==(const route& other) {
+    if ((this->from == other.from) && (this->to == other.to))
+      return 0;
+    return 1;
+  }
+  friend std::ostream& operator<<(std::ostream&,const route&);
 private:
   point* from;
   point* to;
