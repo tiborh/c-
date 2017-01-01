@@ -7,6 +7,12 @@ void point::add_route_to(point* other,double route_weight) {
   routes_out->push_back(to_other);
 }
 
+void point::unvisit() {
+  visited = false;
+  for (std::list<route>::iterator it=routes_out->begin(); it != routes_out->end(); ++it)
+    (*it).untread();
+}
+
 std::ostream& operator<<(std::ostream& os, const point& pt) {
   os << "\n\tPoint ID: " << pt.id << "\n";
   if (pt.routes_out->size() == 0)

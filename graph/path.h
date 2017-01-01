@@ -1,27 +1,28 @@
 #ifndef PATH_H_INCLUDED
 #define PATH_H_INCLUDED
 
-#include <forward_list>
+#include <deque>
 #include <cassert>
 #include "point.h"
 
 class path {
 public:
-  path(point* first_point): points(new std::forward_list<std::pair<point*,double>>()),
-			    weight_sum(0)
-  {
-    points->push_front(std::pair<point*,double>(first_point,0));
-    assert(points!=0);
+  path(): routes(new std::deque<route*>()),weight_sum(0) {}
+  ~path() {
+    std::cout << "\npath destroy start ... ";
+    delete(routes);
+    std::cout << " path destroy end.\n";
   }
-  ~path() { delete(points); }
-  void add_point(point* next_point,double route_weight) {
-    points->push_front(std::pair<point*,double>(next_point,route_weight));
-    weight_sum += route_weight;
+  void add_route(route* rt) {
+    routes->push_back(rt);
+    weight_sum += rt->get_weight();
   }
-  std::forward_list<std::pair<point*,double>> get_path() const { return *points; }
+  //std::deque<std::pair<point*,double>> get_path() const { return *points; }
   double get_weight_sum() const { return weight_sum; }
+  void check_integrity();	// to see if one finishes, where the next starts
+  friend std::ostream& operator<<(std::ostream&, const path&);
 private:
-  std::forward_list<std::pair<point*,double>>* points;
+  std::deque<route*>* routes;
   double weight_sum;
 };
 

@@ -4,9 +4,10 @@ using namespace std;
 
 #include "point.h"
 #include "graph.h"
+#include "path.h"
 
 int main() {
-  cout << "\npoint test:\n";
+  cout << "\npoint demo:\n";
   cout << "=============\n";
   point pa = point("A");
   cout << "pa: " << pa << '\n';
@@ -18,10 +19,32 @@ int main() {
   pa.add_route_to(&pc,2);
   cout << "a: " << pa << '\n';
 
-  cout << "\nGraph test:\n";
+  cout << "\nroute demo:\n";
+  cout << "=============\n";
+  route rab = route(&pa,&pb);
+  cout << "Route from A to B: " << rab;
+  cout << "treadnig the road: ";
+  rab.tread();
+  cout << rab;
+  cout << "untreadnig the road: ";
+  rab.untread();
+  cout << rab;
+
+  cout << "\npath demo:\n";
+  cout << "=============\n";
+  cout << "Creating two more paths and adding them to path:\n";
+  route rbc = route(&pb,&pc,2);
+  route rca = route(&pc,&pa,3);  
+  path ptha = path();
+  ptha.add_route(&rab);
+  ptha.add_route(&rbc);
+  ptha.add_route(&rca);
+  cout << ptha << '\n';
+  
+  cout << "\nGraph demo:\n";
   cout << "=============\n";
   graph ga = graph();
-  cout << "adding A, which already has routes:\n";
+  cout << "adding A, the copy construct does not copy routes:\n";
   ga.add_point(pa);
   cout << "ga:" << ga;
   cout << "adding the remaining two points:\n";
@@ -29,10 +52,12 @@ int main() {
   ga.add_point(pc);
   cout << "ga:" << ga;
   cout << "adding a route from B to C\n";
-  pc.add_route_to(&pb);
+  ga.add_route("B","C",2);
   cout << "ga:" << ga;
-  // cout << "self-referential B\n";
-  // pb.add_route_to(&pb);
-  // cout << "ga:" << ga;
+  cout << "adding the rest of the routes\n";
+  ga.add_route("A","B");
+  ga.add_route("A","C",3);
+  ga.add_route("C","A",2);
+  cout << "ga:" << ga;
   return 0;
 }

@@ -17,16 +17,16 @@ public:
   {
     assert(from_point != 0 && to_point != 0 && route_weight != 0);
   }
-  //~route() { std::cout << "\n\t\troute destruction\n"; } // comment out to avoid "double free or corruption"
-  point* get_origin() const { return from; }
-  point* get_destination() const { return to; }
+  ~route() { std::cout << "\n\t\t(route destruction)"; } // comment out to avoid "double free or corruption"
+  //point* get_origin() const { return from; }
+  //point* get_destination() const { return to; }
   double get_weight() const { return weight; }
   bool is_trodden() const { return trodden; }
   void tread() {
     assert(!trodden);	// rule: once only
     trodden = true;
   }
-  void reset() { trodden = false; }
+  void untread() { trodden = false; }
   int operator==(const route& other) {
     if ((this->from == other.from) && (this->to == other.to))
       return 0;

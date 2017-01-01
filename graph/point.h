@@ -13,10 +13,14 @@ public:
 				routes_out(new std::list<route>()),
 				visited(false)
   {}
+  point(const point& other): id(other.id),
+			     routes_out(new std::list<route>()),
+			     visited(false)
+  {}
   ~point() {
-    std::cout << "\t" << id  << ": point destroy start ... ";
+    std::cout << "\n\t" << id  << ": point destroy start ... ";
     delete(routes_out);
-    std::cout << "\tpoint destroy end.\n";
+    std::cout << "\n\tpoint destroy end.\n";
   }
   const char* get_id() const { return id; }
   std::list<route> get_routes() const { return *routes_out; }
@@ -24,10 +28,13 @@ public:
   void remove_route_to(point* p_dest) { routes_out->remove(route(this,p_dest)); }
   point next_route_out();
   bool reset_route_iterator();
+  bool is_visited() { return visited; }
   void visit() {
     assert(!visited);
     visited = true;
   }
+  void unvisit();
+  
   int operator==(const point& other) {
     return strcmp(this->id,other.id);
   }
