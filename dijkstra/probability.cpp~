@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int PROBRANGE = 100;
+
+bool prob(double probval=0.5) {
+  int probint = static_cast<int>(probval*PROBRANGE);
+  int randval = rand() % probint;
+  return randval < PROBRANGE ? false : true;
+}
+
+int main() {
+  srand(time(0));
+  
+  return 0;
+}
