@@ -4,27 +4,30 @@
 #include <cassert>
 #include <iostream>
 #include <ostream>
+#include <string>
 
 class point;			// route may be better off as a subclass of point
 
 class route {
 public:
-  route(point* from_point, point* to_point, double route_weight = 1) :
+  route(): from(0),to(0),weight(0),trodden(false) {}
+  route(point* from_point, point* to_point, double route_weight = 1,bool troddenness = false) :
     from(from_point),
     to(to_point),
     weight(route_weight),
-    trodden(false)
+    trodden(troddenness)
   {
     assert(from_point != 0 && to_point != 0 && route_weight != 0);
   }
-  ~route() { std::cout << "\n\t\t(route destruction)"; } // comment out to avoid "double free or corruption"
-  //point* get_origin() const { return from; }
-  //point* get_destination() const { return to; }
+  //~route() { std::cout << "\n\t\t(route destruction)"; } // comment out to avoid "double free or corruption"
+  const char* get_from_id() const;
+  const char* get_to_id() const;
   double get_weight() const { return weight; }
   bool is_trodden() const { return trodden; }
-  void tread() {
+  double tread() {
     assert(!trodden);	// rule: once only
     trodden = true;
+    return(weight);
   }
   void untread() { trodden = false; }
   int operator==(const route& other) {

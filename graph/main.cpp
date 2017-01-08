@@ -11,13 +11,22 @@ int main() {
   cout << "=============\n";
   point pa = point("A");
   cout << "pa: " << pa << '\n';
+  cout << "visiting A:\n";
+  pa.visit();
+  assert(pa.is_visited());
+  cout << "pa: " << pa << '\n';
   point pb = point("B");
   cout << "pb: " << pb << '\n';
   cout << "adding routes to some other points\n";
   pa.add_route_to(&pb);
   point pc = point("C");
   pa.add_route_to(&pc,2);
-  cout << "a: " << pa << '\n';
+  cout << "pa: " << pa << '\n';
+  cout << "creating D from A (and adding route to B):\n";
+  point pd = point(pa,true);
+  assert(pd.is_visited());
+  cout << "pd: " << pd << '\n';
+  pd.add_route_to(&pb,2);
 
   cout << "\nroute demo:\n";
   cout << "=============\n";
@@ -32,7 +41,7 @@ int main() {
 
   cout << "\npath demo:\n";
   cout << "=============\n";
-  cout << "Creating two more paths and adding them to path:\n";
+  cout << "Creating two more routes and adding them to path:\n";
   route rbc = route(&pb,&pc,2);
   route rca = route(&pc,&pa,3);  
   path ptha = path();
@@ -54,10 +63,25 @@ int main() {
   cout << "adding a route from B to C\n";
   ga.add_route("B","C",2);
   cout << "ga:" << ga;
+  cout << "treading the new route\n";
+  ga.tread("B","C");
+  cout << "ga:" << ga;
   cout << "adding the rest of the routes\n";
   ga.add_route("A","B");
   ga.add_route("A","C",3);
   ga.add_route("C","A",2);
   cout << "ga:" << ga;
+  cout << "visiting A:\n";
+  ga.visit("A");
+  cout << ga;
+  cout << "Adding D:";
+  ga.add_point(pd,true);
+  cout << ga;
+
+  cout << "\nGraph copy demo:\n";
+  cout << "==================\n";
+  graph gb = graph(ga);
+  cout << "graph b (gb) created from graph a (ga):\n";
+  cout << gb;
   return 0;
 }

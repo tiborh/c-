@@ -9,9 +9,9 @@ class path {
 public:
   path(): routes(new std::deque<route*>()),weight_sum(0) {}
   ~path() {
-    std::cout << "\npath destroy start ... ";
+    //std::cout << "\npath destroy start ... ";
     delete(routes);
-    std::cout << " path destroy end.\n";
+    //std::cout << " path destroy end.\n";
   }
   void add_route(route* rt) {
     routes->push_back(rt);
