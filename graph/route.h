@@ -6,7 +6,7 @@
 #include <ostream>
 #include <string>
 
-class point;			// route may be better off as a subclass of point
+class point;
 
 class route {
 public:
@@ -19,7 +19,6 @@ public:
   {
     assert(from_point != 0 && to_point != 0 && route_weight != 0);
   }
-  //~route() { std::cout << "\n\t\t(route destruction)"; } // comment out to avoid "double free or corruption"
   const char* get_from_id() const;
   const char* get_to_id() const;
   double get_weight() const { return weight; }
@@ -35,12 +34,14 @@ public:
       return 0;
     return 1;
   }
+  friend class graph_walker;
   friend std::ostream& operator<<(std::ostream&,const route&);
 private:
   point* from;
   point* to;
   double weight;
   bool trodden;
+  point* get_to() const { return to; }
 };
 
 #endif //ROUTE_H_INCLUDED

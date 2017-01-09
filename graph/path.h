@@ -7,22 +7,26 @@
 
 class path {
 public:
-  path(): routes(new std::deque<route*>()),weight_sum(0) {}
-  ~path() {
-    //std::cout << "\npath destroy start ... ";
-    delete(routes);
-    //std::cout << " path destroy end.\n";
-  }
+  path(): routes(std::deque<route*>()),weight_sum(0) {}
+  path(const path& other);
+  // ~path() {
+  //   //std::cout << "\npath destroy start ... ";
+  //   delete(routes);
+  //   //std::cout << " path destroy end.\n";
+  // }
   void add_route(route* rt) {
-    routes->push_back(rt);
+    routes.push_back(rt);
     weight_sum += rt->get_weight();
   }
   //std::deque<std::pair<point*,double>> get_path() const { return *points; }
   double get_weight_sum() const { return weight_sum; }
-  void check_integrity();	// to see if one finishes, where the next starts
+  int size() const { return routes.size(); }
+  const char* get_first_id() const { return routes.front()->get_from_id(); }
+  const char* get_last_id() const { return routes.back()->get_to_id(); }
+  //void check_integrity();	// to see if one finishes, where the next starts
   friend std::ostream& operator<<(std::ostream&, const path&);
 private:
-  std::deque<route*>* routes;
+  std::deque<route*> routes;
   double weight_sum;
 };
 

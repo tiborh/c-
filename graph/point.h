@@ -15,9 +15,10 @@ public:
 							 //routes_out(std::map<std::string,route>()),
 							 visited(visitedness)
   {}
-  point(const point& other,bool copy_visitedness = false): id(other.id),
-							   //routes_out(std::map<std::string,route>()),
-							   visited(copy_visitedness ? other.visited : false)
+  point(const point& other,bool copy_visitedness = false,bool copy_id = true,const char* new_id = "unnamed"):
+    id(copy_id ? other.id : new_id),
+    //routes_out(std::map<std::string,route>()),
+    visited(copy_visitedness ? other.visited : false)
   {}
   ~point() {
     //std::cout << "\n\t" << id  << ": point destroy start ... ";
@@ -33,12 +34,14 @@ public:
     visited = true;
   }
   void unvisit();
+  void reset();
   
   int operator==(const point& other) {
     return strcmp(this->id,other.id);
   }
   friend std::ostream& operator<<(std::ostream&,const point&);
   friend class graph;
+  friend class graph_walker;
 private:
   const char* id;
   std::map<std::string,route> routes_out;
