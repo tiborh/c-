@@ -1,0 +1,25 @@
+#include <iostream>
+#include <ostream>
+
+using namespace std;
+
+struct rational {
+  rational(int n = 0) : a(n),q(1) { cout << "rational, constructor 1\n"; }
+  rational(int i, int j) : a(i),q(j) { cout << "rational, constructor 2\n"; }
+  rational(double r) : q(BIG), a(r*BIG) { cout << "rational, constructor 3\n"; }
+  operator double() { return static_cast<double>(a)/q; }
+  friend ostream& operator<<(ostream& os, const rational& other);
+private:
+  long a,q;
+  enum { BIG = 100 };
+}
+
+  friend ostream& operator<<(ostream& os, const rational& other) {
+    os << a << " / " << q;
+    return os;
+  }
+  
+int main() {
+
+  return 0;
+}
