@@ -1,0 +1,823 @@
+
+point demo:
+=============
+pa: 
+	Point ID: A (unvisited)
+	No routes from this point yet.
+
+visiting A:
+pa: 
+	Point ID: A (visited)
+	No routes from this point yet.
+
+pb: 
+	Point ID: B (unvisited)
+	No routes from this point yet.
+
+adding routes to some other points
+pa: 
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 2
+		trodden? false
+
+
+creating D from A (and adding route to B):
+pd: 
+	Point ID: A (visited)
+	No routes from this point yet.
+
+creating E from A with new name:
+
+	Point ID: E (unvisited)
+	No routes from this point yet.
+
+
+route demo:
+=============
+Route from A to B: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+treadnig the road: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+untreadnig the road: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+path demo:
+=============
+Creating two more routes and adding them to path:
+
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+		from: C
+		to: A
+		weight: 3
+		trodden? false
+sum of weights: 6
+
+creating a path B from path A:
+
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+		from: C
+		to: A
+		weight: 3
+		trodden? false
+sum of weights: 6
+adding a route to path B:
+
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+		from: C
+		to: A
+		weight: 3
+		trodden? false
+
+		from: A
+		to: B
+		weight: 2
+		trodden? false
+sum of weights: 8
+checking if path A has changed too:
+
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+		from: C
+		to: A
+		weight: 3
+		trodden? false
+sum of weights: 6
+
+Graph demo:
+=============
+adding A, the copy construct does not copy routes:
+ga:
+	Point ID: A (unvisited)
+	No routes from this point yet.
+
+adding the remaining two points:
+ga:
+	Point ID: A (unvisited)
+	No routes from this point yet.
+
+
+	Point ID: B (unvisited)
+	No routes from this point yet.
+
+
+	Point ID: C (unvisited)
+	No routes from this point yet.
+
+adding a route from B to C
+ga:
+	Point ID: A (unvisited)
+	No routes from this point yet.
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: C (unvisited)
+	No routes from this point yet.
+
+treading the new route
+ga:
+	Point ID: A (unvisited)
+	No routes from this point yet.
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	No routes from this point yet.
+
+adding the rest of the routes
+ga:
+	Point ID: A (unvisited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+visiting A:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+Adding D:
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: D (visited)
+	No routes from this point yet.
+
+
+Graph copy demo:
+==================
+graph b (gb) created from graph a (ga):
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: D (visited)
+	No routes from this point yet.
+
+adding routes to point D:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? false
+
+
+
+	Point ID: D (visited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+resetting graph B:
+
+	Point ID: A (unvisited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? false
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? false
+
+
+
+	Point ID: D (unvisited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+
+Graph walking demo:
+=====================
+visiting point: A
+graph before recursion:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? false
+
+
+
+	Point ID: D (unvisited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+path so far: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+sum of weights: 1
+visiting point: B
+graph before recursion:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (visited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? false
+
+
+
+	Point ID: D (unvisited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+path so far: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+sum of weights: 3
+visiting point: C
+graph before recursion:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? false
+
+
+
+	Point ID: B (visited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+
+
+	Point ID: C (visited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? true
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? true
+
+
+
+	Point ID: D (unvisited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+path so far: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+		from: B
+		to: C
+		weight: 2
+		trodden? true
+
+		from: C
+		to: D
+		weight: 1
+		trodden? true
+sum of weights: 4
+visiting point: D
+graph before recursion:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? true
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: C (unvisited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? false
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? false
+
+
+
+	Point ID: D (unvisited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+path so far: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+		from: A
+		to: C
+		weight: 3
+		trodden? true
+sum of weights: 4
+visiting point: C
+graph before recursion:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? true
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: C (visited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? true
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? true
+
+
+
+	Point ID: D (unvisited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? false
+
+
+path so far: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+		from: A
+		to: C
+		weight: 3
+		trodden? true
+
+		from: C
+		to: D
+		weight: 1
+		trodden? true
+sum of weights: 5
+visiting point: D
+graph before recursion:
+
+	Point ID: A (visited)
+	Routes: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+
+		from: A
+		to: C
+		weight: 3
+		trodden? true
+
+
+
+	Point ID: B (unvisited)
+	Routes: 
+		from: B
+		to: C
+		weight: 2
+		trodden? false
+
+
+
+	Point ID: C (visited)
+	Routes: 
+		from: C
+		to: A
+		weight: 2
+		trodden? true
+
+
+		from: C
+		to: D
+		weight: 1
+		trodden? true
+
+
+
+	Point ID: D (visited)
+	Routes: 
+		from: D
+		to: B
+		weight: 1
+		trodden? true
+
+
+path so far: 
+		from: A
+		to: B
+		weight: 1
+		trodden? true
+
+		from: A
+		to: C
+		weight: 3
+		trodden? true
+
+		from: C
+		to: D
+		weight: 1
+		trodden? true
+
+		from: D
+		to: B
+		weight: 1
+		trodden? true
+sum of weights: 6
+visiting point: B
