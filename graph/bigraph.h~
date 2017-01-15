@@ -1,0 +1,15 @@
+#ifndef BIGRAPH_H_INCLUDED
+#define BIGRAPH_H_INCLUDED
+
+class bigraph: public graph {
+  void add_point(const point& p1,
+		 bool cp_visit = true,
+		 bool cp_id = false,
+		 const char * new_id = "copied");
+};
+
+#endif //BIGRAPH_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:
