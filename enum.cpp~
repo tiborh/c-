@@ -1,0 +1,36 @@
+#include <iostream>
+#include <ostream>
+
+using namespace std;
+
+enum COLOUR { BLACK, WHITE, RED, GREEN, BLUE };
+
+ostream& operator<<(ostream& os, COLOUR c) {
+  switch (c) {
+  case BLACK:
+    os << "BLACK";
+    break;
+  case WHITE:
+    os << "WHITE";
+    break;
+  case RED:
+    os << "RED";
+    break;
+  case GREEN:
+    os << "GREEN";
+    break;
+  case BLUE:
+    os << "BLUE";
+    break;
+  default:
+    os << "UNDEFINED";
+  }
+
+  return os;
+}
+
+
+int main() {
+
+  return 0;
+}
