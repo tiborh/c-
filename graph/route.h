@@ -34,7 +34,7 @@ public:
       return 0;
     return 1;
   }
-  friend class graph_walker;
+  //friend class graph_walker;
   friend std::ostream& operator<<(std::ostream&,const route&);
 private:
   point* from;
@@ -45,3 +45,7 @@ private:
 };
 
 #endif //ROUTE_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:

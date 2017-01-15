@@ -25,8 +25,8 @@ std::ostream& operator<<(std::ostream& os, const point& pt) {
     std::cout << "\tNo routes from this point yet.\n";
   else {
     os << "\tRoutes: ";
-    for (std::map<std::string,route>::iterator it = pt.get_routes().begin();
-	 it != pt.get_routes().end(); ++it)
+    for (std::map<std::string,route>::const_iterator it = pt.routes_out.begin();
+	 it != pt.routes_out.end(); ++it)
       os << it->second << '\n';
   }
   return os;

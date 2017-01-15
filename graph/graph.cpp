@@ -61,11 +61,14 @@ double graph::tread(const char* p1name,const char* p2name) {
 }
 
 void graph::add_route(const char* from, const char* to, double weight) {
+  //std::cout << "adding route from: " << from << " to: " << to << '\n';
   point* from_pt = find_point(from);
+  //int nroutes = from_pt->num_of_routes_out();
   assert(from_pt != 0);
   point* to_pt = find_point(to);
   assert(to_pt != 0);
   from_pt->add_route_to(to_pt,weight);
+  //assert(nroutes + 1 == from_pt->num_of_routes_out());
 }
 
 std::ostream& operator<<(std::ostream& os,const graph& in) {

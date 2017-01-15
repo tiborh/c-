@@ -1,13 +1,30 @@
 #include <iostream>
+#include <set>
+#include "main.h"
 
 using namespace std;
+//#include "graph_walker.h"
 
-#include "point.h"
-#include "graph.h"
-#include "path.h"
-#include "graph_walker.h"
+int main(int argc, char** argv) {
+  set<string> args = set<string>();
+  for(int i = 0; i < argc; ++i)
+    args.insert(string(argv[i]));
+  if (args.find(string("point")) != args.end())
+      point_demo();
+  if (args.find(string("route")) != args.end())
+    route_demo();
+  if (args.find(string("path")) != args.end())
+    path_demo();
+  if (args.find(string("graph")) != args.end()) {
+    graph ga = graph_demo();
+    graph_copy_demo(ga);
+  }
+  if (args.find(string("bigraph")) != args.end())
+    bigraph_demo();
+  return 0;
+}
 
-int main() {
+void point_demo() {
   cout << "\npoint demo:\n";
   cout << "=============\n";
   point pa = point("A");
@@ -32,7 +49,11 @@ int main() {
   point pe = point(pa,false,false,"E");
   cout << pe << '\n';
   assert(strcmp(pe.get_id(),"E") == 0);
+}
 
+void route_demo() {
+  point pa = point("A");
+  point pb = point("B");
   cout << "\nroute demo:\n";
   cout << "=============\n";
   route rab = route(&pa,&pb);
@@ -43,10 +64,17 @@ int main() {
   cout << "untreadnig the road: ";
   rab.untread();
   cout << rab;
+}
 
+void path_demo() { 
+  point pa = point("A");
+  point pb = point("B");
+  point pc = point("C");
+  point pd = point(pa,true,false,"D");
   cout << "\npath demo:\n";
   cout << "=============\n";
-  cout << "Creating two more routes and adding them to path:\n";
+  cout << "Creating three routes and adding them to path:\n";
+  route rab = route(&pa,&pb);
   route rbc = route(&pb,&pc,2);
   route rca = route(&pc,&pa,3);  
   path ptha = path();
@@ -67,7 +95,13 @@ int main() {
   cout << ptha;
   assert(ptha.size()+1 == pthb.size());
   assert(ptha.get_weight_sum()+rdb.get_weight() == pthb.get_weight_sum());
-  
+}
+
+graph graph_demo() {
+  point pa = point("A");
+  point pb = point("B");
+  point pc = point("C");
+  point pd = point(pa,true,false,"D");
   cout << "\nGraph demo:\n";
   cout << "=============\n";
   graph ga = graph();
@@ -95,7 +129,11 @@ int main() {
   cout << "Adding D:";
   ga.add_point(pd,true,false,"D");
   cout << ga;
-  
+
+  return ga;
+}
+
+void graph_copy_demo(const graph &ga) {
   cout << "\nGraph copy demo:\n";
   cout << "==================\n";
   graph gb = graph(ga);
@@ -108,10 +146,25 @@ int main() {
   cout << "resetting graph B:\n";
   gb.reset();
   cout << gb;
+}
 
-  cout << "\nGraph walking demo:\n";
-  cout << "=====================\n";
-  graph_walker::walker_wrapper(gb,"A");
-  
-  return 0;
+void bigraph_demo() {
+  point pa = point("A");
+  point pb = point("B");
+  point pc = point("C");
+  cout << "\nBiGraph demo:\n";
+  cout << "=============\n";
+  bigraph bga = bigraph();
+  cout << "adding the three points:\n";
+  bga.add_point(pa,false,true);
+  bga.add_point(pb,false,true);
+  bga.add_point(pc,false,true);
+  cout << "bga:" << bga;
+  cout << "adding the routes:\n";
+  bga.add_route("B","C",2);
+  bga.add_route("C","A",3);
+  cout << "bga:" << bga;
+  cout << "tread test:\n";
+  bga.tread("A","C");
+  cout << "bga:" << bga;
 }

@@ -27,6 +27,7 @@ public:
   }
   const char* get_id() const { return id; }
   void add_route_to(point*,double route_weight=1,bool troddenness = false);
+  int num_of_routes_out() const { return routes_out.size(); }
   void remove_route_to(point* p_dest) { routes_out.erase(std::string(p_dest->id)); }
   bool is_visited() { return visited; }
   void visit() {
@@ -41,12 +42,15 @@ public:
   }
   friend std::ostream& operator<<(std::ostream&,const point&);
   friend class graph;
-  friend class graph_walker;
+  //friend class graph_walker;
 private:
   const char* id;
   std::map<std::string,route> routes_out;
   bool visited;
-  std::map<std::string,route> get_routes() const { return routes_out; }
 };
 
 #endif //POINT_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:

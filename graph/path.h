@@ -9,11 +9,7 @@ class path {
 public:
   path(): routes(std::deque<route*>()),weight_sum(0) {}
   path(const path& other);
-  // ~path() {
-  //   //std::cout << "\npath destroy start ... ";
-  //   delete(routes);
-  //   //std::cout << " path destroy end.\n";
-  // }
+  ~path() {}
   void add_route(route* rt) {
     routes.push_back(rt);
     weight_sum += rt->get_weight();
@@ -32,3 +28,6 @@ private:
 
 #endif //PATH_H_INCLUDED
 
+// Local Variables:
+// mode: c++
+// End:
