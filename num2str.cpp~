@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <cassert>
+#include <cstdio>
+
+const char* NAME_PALETTE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const char* NAME_PALETTE_SIZE = strlen(NAME_PALETTE);
+
+using namespace std;
+
+string num_to_str(int input) {
+  if (input < NAME_PALETTE_SIZE)
+    return string(NAME_PALETTE[input]);
+  string outstr = string();
+  while(1) {
+    if (input >= NAME_PALETTE_SIZE) {
+      outstr.append(NAME_PALETTE[NAME_PALETTE_SIZE-1]);
+      input -= NAME_PALETTE_SIZE-1;
+    } else
+      outstr.append(NAME_PALETTE[input]);
+  }
+  return outstr;
+}
+
+int main(int argc; char** argv) {
+  int readsuccess = 0, num_to_convert=0;
+  if (argc > 1) {
+    readsuccess = sscanf(argv[1],"%d",&num_to_convert);
+    assert(readsuccess > 0);
+    assert(num_to_convert >= 0);
+    cout << "result: " << num_to_str(num_to_convert) << '\n';
+  }
+  else
+    cout << "Give an integer to convert to string as an argument.\n";
+  
+  return 0;
+}
