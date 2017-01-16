@@ -1,13 +1,21 @@
 #include <iostream>
 #include <set>
+#include <fstream>
+#include <sstream>
+#include <cstring>
 #include "main.h"
+
+const int NAME_PALETTE_SIZE = strlen(NAME_PALETTE);
 
 using namespace std;
 //#include "graph_walker.h"
 
 int main(int argc, char** argv) {
+  const char* demo_types = "point, route, path, graph, bigraph";
+  if (argc == 1)
+    cout << "possible demo types: " << demo_types << '\n';
   set<string> args = set<string>();
-  for(int i = 0; i < argc; ++i)
+  for(int i = 1; i < argc; ++i)
     args.insert(string(argv[i]));
   if (args.find(string("point")) != args.end())
       point_demo();
@@ -21,7 +29,38 @@ int main(int argc, char** argv) {
   }
   if (args.find(string("bigraph")) != args.end())
     bigraph_demo();
+  if (args.find(string("infile")) != args.end()) {
+    
+  }
   return 0;
+}
+
+// graph read_file(const char* fn) {
+//   ifstream infile(fn);
+//   int 
+
+// }
+
+string num_to_str(int input) {
+  assert(input >= 0);
+  stringstream ss;
+  string outstr;
+  if (input < NAME_PALETTE_SIZE) {
+    ss << NAME_PALETTE[input];
+    ss >> outstr;
+    return outstr;
+  }
+  while(input >= 0) {
+    if (input >= NAME_PALETTE_SIZE) {
+      ss << NAME_PALETTE[NAME_PALETTE_SIZE-1];
+      input -= NAME_PALETTE_SIZE;
+    } else {
+      ss << NAME_PALETTE[input];
+      input -= NAME_PALETTE_SIZE;
+    }
+  }
+  ss >> outstr;
+  return outstr;
 }
 
 void point_demo() {
