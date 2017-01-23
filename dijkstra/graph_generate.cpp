@@ -178,6 +178,7 @@ int main(int argc, char** argv) {
   double probval = DEFAULT_PROBABILITY;
   int readsuccess,max_weight=MAX_EDGE_WEIGHT;
   string fn = (argc > 4) ? string(argv[4]) : string(DEFAULT_FILE_NAME);
+  assert(fn.length() > 0);
   graph a;
   bigraph b;
   
