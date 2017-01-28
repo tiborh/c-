@@ -24,10 +24,10 @@ std::ostream& operator<<(std::ostream& os, const point& pt) {
   if (pt.routes_out.size() == 0)
     std::cout << "\tNo routes from this point yet.\n";
   else {
-    os << "\tRoutes: ";
+    os << "\tRoutes:\n";
     for (std::map<std::string,route>::const_iterator it = pt.routes_out.begin();
 	 it != pt.routes_out.end(); ++it)
-      os << it->second << '\n';
+      os << '\t' << it->first << " => " << it->second << '\n';
   }
   return os;
 }

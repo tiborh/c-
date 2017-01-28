@@ -11,7 +11,7 @@ using namespace std;
 //#include "graph_walker.h"
 
 int main(int argc, char** argv) {
-  const char* demo_types = "point, route, path, graph, bigraph";
+  const char* demo_types = "point, route, path, graph, bigraph, infile";
   if (argc == 1)
     cout << "possible demo types: " << demo_types << '\n';
   set<string> args = set<string>();
@@ -30,16 +30,77 @@ int main(int argc, char** argv) {
   if (args.find(string("bigraph")) != args.end())
     bigraph_demo();
   if (args.find(string("infile")) != args.end()) {
-    
+    graph ga;
+    const char* infile = "input.txt";
+    ga = read_file(infile);
+    cout << ga;
   }
   return 0;
 }
 
-// graph read_file(const char* fn) {
-//   ifstream infile(fn);
-//   int 
+#include <sys/stat.h>
 
-// }
+inline bool file_exists (const char* name) {
+    if (FILE *file = fopen(name, "r")) {
+        fclose(file);
+        return true;
+    } else {
+        return false;
+    }   
+}
+
+long file_size(std::string filename) {
+    struct stat stat_buf;
+    int rc = stat(filename.c_str(), &stat_buf);
+    return rc == 0 ? stat_buf.st_size : -1;
+}
+
+graph read_file(const char* fn) {
+  cout << "Reading input file: " << fn << '\n';
+  assert(file_exists(fn));
+  assert(file_size(string(fn)) > 0);
+  ifstream infile(fn);
+  int num_of_nodes = 0;
+  string line;
+  getline(infile, line);
+  {
+    istringstream iss(line);
+    if (!(iss >> num_of_nodes)) {
+      cout << "Reading number of points have failed.";
+      exit(1);
+    }
+  }
+  assert(num_of_nodes > 0);
+  cout << "number of points: " << num_of_nodes << '\n';
+  graph ga = graph();
+  while (std::getline(infile, line)) {
+    istringstream iss(line);
+    string from,to;
+    int weight;
+    if (!(iss >> from >> to >> weight)) {
+      cout << "Reading route line has failed.";
+      exit(1);
+    }
+    cout << "from " << from << " to " << to << " with weight " << weight << '\n';
+    if (!ga.is_graph_point(from.c_str())) {
+      cout << "adding: '" << from << "' to graph.\n";
+      point p1 = point(from.c_str());
+      ga.add_point(p1,false,true);
+    }
+    assert(ga.is_graph_point(from.c_str()));
+    if (!ga.is_graph_point(to.c_str())) {
+      cout << "adding: '" << to << "' to graph.\n";
+      point p2 = point(to.c_str());
+      ga.add_point(p2,false,true);
+    }
+    assert(ga.is_graph_point(to.c_str()));
+    ga.add_route(from.c_str(),to.c_str(),weight);
+    cout << "size of graph: " << ga.size() << '\n';
+    cout << ga;
+  }
+  assert(ga.size() == num_of_nodes);
+  return ga;
+}
 
 string num_to_str(int input) {
   assert(input >= 0);

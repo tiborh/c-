@@ -15,6 +15,8 @@ void path_demo();
 graph graph_demo();
 void graph_copy_demo(const graph&);
 void bigraph_demo();
+inline bool file_exists (const char*);
+long file_size(std::string);
 graph read_file(const char* input_filename = INPUT_FN);
 std::string num_to_str(int);
 

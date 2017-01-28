@@ -32,12 +32,28 @@ void graph::add_point(const point& p1,
   }
 }
 
+// void graph::add_point(const char* p1name) {
+//   point p1 = point(p1name);
+//   points.push_back(p1);
+// }
+
 point* graph::find_point(const char* id) {
-  for (std::list<point>::iterator it=points.begin(); it != points.end(); ++it) {
+  for (auto it=points.begin(); it != points.end(); ++it) {
     if (0 == strcmp(it->get_id(),id))
       return &*it;
   }
   return 0;
+}
+
+bool graph::is_graph_point(const char* id) {
+  for (auto it=points.begin(); it != points.end(); ++it) {
+    if (0 == strcmp(it->get_id(),id)) {
+      std::cout << id << " has been found in graph. (true)\n";
+      return true;
+    }
+  }
+  std::cout << id << " has not been found in graph. (false)\n";
+  return false;
 }
 
 void graph::reset() {
