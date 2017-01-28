@@ -1,0 +1,26 @@
+#ifndef FILE_UTILS_H_INCLUDED
+#define FILE_UTILS_H_INCLUDED
+
+#include <sys/stat.h>
+
+inline bool file_exists (const char* name) {
+    if (FILE *file = fopen(name, "r")) {
+        fclose(file);
+        return true;
+    } else {
+        return false;
+    }   
+}
+
+long file_size(std::string filename) {
+    struct stat stat_buf;
+    int rc = stat(filename.c_str(), &stat_buf);
+    return rc == 0 ? stat_buf.st_size : -1;
+}
+
+
+#endif //FILE_UTILS_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:
