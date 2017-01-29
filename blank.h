@@ -8,7 +8,7 @@ protected:
 
 private:
 
-}
+};
 
 #endif //BLANK_H_INCLUDED
 

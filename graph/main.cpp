@@ -11,7 +11,7 @@ using namespace std;
 //#include "graph_walker.h"
 
 int main(int argc, char** argv) {
-  const char* demo_types = "point, route, path, graph, bigraph, infile";
+  const char* demo_types = "point, route, path, graph, digraph, infile";
   if (argc == 1)
     cout << "possible demo types: " << demo_types << '\n';
   set<string> args = set<string>();
@@ -27,8 +27,8 @@ int main(int argc, char** argv) {
     graph ga = graph_demo();
     graph_copy_demo(ga);
   }
-  if (args.find(string("bigraph")) != args.end())
-    bigraph_demo();
+  if (args.find(string("digraph")) != args.end())
+    digraph_demo();
   if (args.find(string("infile")) != args.end()) {
     graph ga;
     const char* infile = "input.txt";
@@ -248,13 +248,13 @@ void graph_copy_demo(const graph &ga) {
   cout << gb;
 }
 
-void bigraph_demo() {
+void digraph_demo() {
   point pa = point("A");
   point pb = point("B");
   point pc = point("C");
-  cout << "\nBiGraph demo:\n";
+  cout << "\nDigraph demo:\n";
   cout << "=============\n";
-  bigraph bga = bigraph();
+  digraph bga = digraph();
   cout << "adding the three points:\n";
   bga.add_point(pa,false,true);
   bga.add_point(pb,false,true);

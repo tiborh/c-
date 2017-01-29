@@ -3,7 +3,7 @@
 
 #include "point.h"
 #include "graph.h"
-#include "bigraph.h"
+#include "digraph.h"
 #include "path.h"
 
 const char* INPUT_FN = "graph_data.txt";
@@ -14,7 +14,7 @@ void route_demo();
 void path_demo();
 graph graph_demo();
 void graph_copy_demo(const graph&);
-void bigraph_demo();
+void digraph_demo();
 inline bool file_exists (const char*);
 long file_size(std::string);
 graph read_file(const char* input_filename = INPUT_FN);
