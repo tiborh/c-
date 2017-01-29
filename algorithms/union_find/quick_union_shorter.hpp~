@@ -1,0 +1,17 @@
+#ifndef QUICK_UNION_SHORTER_H_INCLUDED
+#define QUICK_UNION_SHORTER_H_INCLUDED
+
+class quick_union_shorter {
+public:
+
+protected:
+
+private:
+
+};
+
+#endif //QUICK_UNION_SHORTER_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:

@@ -1,0 +1,13 @@
+#ifndef QUICK_UNION_H_INCLUDED
+#define QUICK_UNION_H_INCLUDED
+
+class quick_union {
+public:
+
+}
+
+#endif //QUICK_UNION_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:
