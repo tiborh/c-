@@ -24,16 +24,26 @@ int main() {
 }
 
 void percolate_stat_tests() {
-  PercolationStats a = PercolationStats(100,100);
-  cout << "Mean of 100 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
-  a = PercolationStats(200,100);
-  cout << "Mean of 200 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
-  a = PercolationStats(200,100);
-  cout << "Same for the second time: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
-  a = PercolationStats(2,10000);
-  cout << "Mean of 2 nodes per 10,000 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
-  a = PercolationStats(2,100000);
-  cout << "Mean of 2 nodes per 100,000 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+  {
+    PercolationStats a = PercolationStats(100,100);
+    cout << "Mean of 100 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+  }
+  {
+    PercolationStats b = PercolationStats(200,100);
+    cout << "Mean of 200 nodes per 100 trials: " << b.mean() << " (" << 100.0*(b.mean()/10000.0) << "%)\n";
+  }
+  {
+    PercolationStats c = PercolationStats(200,100);
+    cout << "Same for the second time: " << c.mean() << " (" << 100.0*(c.mean()/10000.0) << "%)\n";
+  }
+  {
+    PercolationStats d = PercolationStats(2,10000);
+    cout << "Mean of 2 nodes per 10,000 trials: " << d.mean() << " (" << 100.0*(d.mean()/10000.0) << "%)\n";
+  }
+  {
+    PercolationStats e = PercolationStats(2,100000);
+    cout << "Mean of 2 nodes per 100,000 trials: " << e.mean() << " (" << 100.0*(e.mean()/10000.0) << "%)\n";
+  }
 }
 
 void random_open_percolate_test() {
