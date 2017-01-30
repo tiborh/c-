@@ -1,0 +1,23 @@
+#ifndef PERCOLATIONSTATS_H_INCLUDED
+#define PERCOLATIONSTATS_H_INCLUDED
+
+#include <vector>
+
+class PercolationStats {
+public:
+  PercolationStats(int n, int trials);    // perform trials independent experiments on an n-by-n grid
+  double mean();                          // sample mean of percolation threshold
+  double stddev();                        // sample standard deviation of percolation threshold
+  double confidenceLo();                  // low  endpoint of 95% confidence interval
+  double confidenceHi();                  // high endpoint of 95% confidence interval
+protected:
+
+private:
+  vector<unsigned int> tv;	// the values of the number of opened sites at percolation time.
+};
+
+#endif //PERCOLATIONSTATS_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:
