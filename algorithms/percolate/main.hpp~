@@ -1,0 +1,12 @@
+#ifndef MAIN_H_INCLUDED
+#define MAIN_H_INCLUDED
+
+#include "Percolation.hpp"
+
+void simple_tests();
+
+#endif //MAIN_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:

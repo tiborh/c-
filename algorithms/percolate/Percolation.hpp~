@@ -1,0 +1,33 @@
+#ifndef PERCOLATION_H_INCLUDED
+#define PERCOLATION_H_INCLUDED
+
+#include <vector>
+#include <string>
+#include <map>
+
+/**
+ * blocked: 塞がる（ふさがる）
+ * open:    口（開口、かいこう）
+ * full:    水（水田、すいでん）
+ */
+
+class Percolation {
+public:
+  Percolation(int n);                // create n-by-n grid, with all sites blocked
+  void open(int row, int col);       // open site (row, col) if it is not open already
+  boolean isOpen(int row, int col);  // is site (row, col) open?
+  boolean isFull(int row, int col);  // is site (row, col) full?
+  int numberOfOpenSites();           // number of open sites
+  boolean percolates();              // does the system percolate?
+protected:
+
+private:
+  const char s[] = {'B','_','f'};    // statuses
+  const wchar_t p[] = {L'塞',L'口',L'水'};
+};
+
+#endif //PERCOLATION_H_INCLUDED
+
+// Local Variables:
+// mode: c++
+// End:
