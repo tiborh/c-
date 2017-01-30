@@ -2,7 +2,6 @@
 #define PERCOLATION_H_INCLUDED
 
 #include <vector>
-#include <string>
 #include <queue>
 #include <cassert>
 #include <ostream>
