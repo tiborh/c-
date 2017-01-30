@@ -2,6 +2,8 @@
 #include <random>
 #include <ctime>
 #include "main.hpp"
+#include "Percolation.hpp"
+#include "PercolationStats.hpp"
 
 using namespace std;
 
@@ -15,14 +17,30 @@ int main() {
   cout << "\nRandom Open Percolate test:\n";
   cout << "=============================\n";
   random_open_percolate_test();
+  cout << "\nPercolate Statistics tests:\n";
+  cout << "=============================\n";
+  percolate_stat_tests();
   return 0;
+}
+
+void percolate_stat_tests() {
+  PercolationStats a = PercolationStats(100,100);
+  cout << "Mean of 100 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+  a = PercolationStats(200,100);
+  cout << "Mean of 200 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+  a = PercolationStats(200,100);
+  cout << "Same for the second time: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+  a = PercolationStats(2,10000);
+  cout << "Mean of 2 nodes per 10,000 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+  a = PercolationStats(2,100000);
+  cout << "Mean of 2 nodes per 100,000 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
 }
 
 void random_open_percolate_test() {
   int grid_size = 10;
   int nu_of_sites = grid_size * grid_size;
   Percolation a = Percolation(grid_size,grid_size);
-  uniform_int_distribution<uvnsigned> u(0,grid_size-1);
+  uniform_int_distribution<unsigned> u(0,grid_size-1);
   default_random_engine e(time(0));
   while(!a.percolates() && a.numberOfOpenedSites() <= nu_of_sites) {
     unsigned int row = u(e);
