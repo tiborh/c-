@@ -26,23 +26,23 @@ int main() {
 void percolate_stat_tests() {
   {
     PercolationStats a = PercolationStats(100,100);
-    cout << "Mean of 100 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
+    cout << "Mean of 100*100 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
   }
   {
     PercolationStats b = PercolationStats(200,100);
-    cout << "Mean of 200 nodes per 100 trials: " << b.mean() << " (" << 100.0*(b.mean()/10000.0) << "%)\n";
+    cout << "Mean of 200*200 nodes per 100 trials: " << b.mean() << " (" << 100.0*(b.mean()/(200.0*200.0)) << "%)\n";
   }
   {
     PercolationStats c = PercolationStats(200,100);
-    cout << "Same for the second time: " << c.mean() << " (" << 100.0*(c.mean()/10000.0) << "%)\n";
+    cout << "Same for the second time: " << c.mean() << " (" << 100.0*(c.mean()/(200.0*200.0)) << "%)\n";
   }
   {
-    PercolationStats d = PercolationStats(2,10000);
-    cout << "Mean of 2 nodes per 10,000 trials: " << d.mean() << " (" << 100.0*(d.mean()/10000.0) << "%)\n";
+    PercolationStats d = PercolationStats(4,10000);
+    cout << "Mean of 4*4 nodes per 10,000 trials: " << d.mean() << " (" << 100.0*(d.mean()/16.0) << "%)\n";
   }
   {
-    PercolationStats e = PercolationStats(2,100000);
-    cout << "Mean of 2 nodes per 100,000 trials: " << e.mean() << " (" << 100.0*(e.mean()/10000.0) << "%)\n";
+    PercolationStats e = PercolationStats(4,100000);
+    cout << "Mean of 4*4 nodes per 100,000 trials: " << e.mean() << " (" << 100.0*(e.mean()/16.0) << "%)\n";
   }
 }
 

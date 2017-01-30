@@ -25,5 +25,5 @@ double PercolationStats::mean() {
   unsigned long long int sum_of_percs = 0;
   for(auto it = tv.begin(); it != tv.end(); ++it)
     sum_of_percs += *it;
-  return sum_of_percs / tv.size();
+  return sum_of_percs / static_cast<double>(tv.size());
 }
