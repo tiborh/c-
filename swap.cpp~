@@ -1,9 +1,0 @@
-#include <iostream>
-
-int main(void) {
-  int i,j;
-  cout << "Give me two integers: ";
-  cin >> i >> j;
-
-  return(0);
-}

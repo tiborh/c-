@@ -1,0 +1,29 @@
+#include <iostream>
+#include <random>
+#include <ctime>
+#include <chrono>
+#include <array>
+#include <sstream>
+
+using namespace std;
+
+const int NUM = 10;
+const int MAX = 100;
+const int MIN = -MAX;
+
+std::array make_array(int num=NUM,int min=MIN, int max=MAX);
+
+int main(int argc, char** argv) {
+  int num = NUM;
+  int min = MIN;
+  int max = MAX;
+
+  if (argc > 3) {
+    num >> min >> max;
+  } else if (argc > 2) {
+    cin >> num >> min;
+    max = -min;
+  } else if (argc
+
+  return 0;
+}
