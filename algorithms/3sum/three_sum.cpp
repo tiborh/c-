@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
     cout << *it << ", ";
   cout << '\n';
 
-  double ert = 1.006 * pow(10,-7) * pow(num,2.999);
+  double ert = 3.97 * pow(10,-5) * pow(num,2.999);
   cout << "Estimated running time: " << ert << " milliseconds\n";
   high_resolution_clock::time_point t1 = high_resolution_clock::now();
   int zerosums = three_sum(the_nums);
