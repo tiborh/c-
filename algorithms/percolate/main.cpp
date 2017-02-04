@@ -24,26 +24,24 @@ int main() {
 }
 
 void percolate_stat_tests() {
-  {
-    PercolationStats a = PercolationStats(100,100);
-    cout << "Mean of 100*100 nodes per 100 trials: " << a.mean() << " (" << 100.0*(a.mean()/10000.0) << "%)\n";
-  }
-  {
-    PercolationStats b = PercolationStats(200,100);
-    cout << "Mean of 200*200 nodes per 100 trials: " << b.mean() << " (" << 100.0*(b.mean()/(200.0*200.0)) << "%)\n";
-  }
-  {
-    PercolationStats c = PercolationStats(200,100);
-    cout << "Same for the second time: " << c.mean() << " (" << 100.0*(c.mean()/(200.0*200.0)) << "%)\n";
-  }
-  {
-    PercolationStats d = PercolationStats(4,10000);
-    cout << "Mean of 4*4 nodes per 10,000 trials: " << d.mean() << " (" << 100.0*(d.mean()/16.0) << "%)\n";
-  }
-  {
-    PercolationStats e = PercolationStats(4,100000);
-    cout << "Mean of 4*4 nodes per 100,000 trials: " << e.mean() << " (" << 100.0*(e.mean()/16.0) << "%)\n";
-  }
+  print_perc_results(4,4,5);
+  print_perc_results(100,100,100);
+  print_perc_results(200,200,100);
+  cout << "Same again:\n";
+  print_perc_results(200,200,100);
+  print_perc_results(4,4,10000);
+  print_perc_results(4,4,100000);
+}
+
+void print_perc_results(unsigned int rows, unsigned int cols, int trials) {
+  PercolationStats a = PercolationStats(rows,cols);
+  cout << "Case " << rows << " * " << cols << " nodes per " << trials << " trials:\n";
+  cout << '\t' << a << '\n';
+  cout << "\tSum: " << a.getsum() << '\n';
+  cout << "\tMean: " << a.mean() << " (" << 100.0*(a.mean()/static_cast<double>(rows*cols)) << "%)\n";
+  cout << "\tVariance: " << a.variance() << '\n';
+  cout << "\tStandard Deviation: " << a.stddev() << '\n';
+  cout << "\tConfidence (Low,High): ( " << a.confidenceLo() << ", " << a.confidenceHi() << " )\n";
 }
 
 void random_open_percolate_test() {
