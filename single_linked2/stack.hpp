@@ -82,7 +82,6 @@ std::ostream& operator<<(std::ostream& os, const stack<T>& st) {
   node<T>* ptr = st.first;
   int n = st.size();
   for(int i = 0; i < n; ++i) {
-    //os << "'" << ptr->item << "' -> ";
     os << '\t' << *ptr << '\n';
     ptr = ptr->next_node;
   }
