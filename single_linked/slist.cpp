@@ -2,14 +2,14 @@
 
 // constructors:
 slist::slist() : na(0) {}
+slist::slist(char c) {
+  slist_elem* new_elem = new slist_elem(c);
+  na = new_elem;
+}
 slist::slist(const slist_elem& se) {
   slist_elem* new_elem = new slist_elem(se);
   na = new_elem;
   new_elem->set_na(0);
-}
-slist::slist(char c) {
-  slist_elem* new_elem = new slist_elem(c);
-  na = new_elem;
 }
 
 // destructor:
