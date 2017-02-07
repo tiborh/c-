@@ -7,6 +7,7 @@
 
 void node_test();
 void simple_stack_test();
+void input_test(int,char**);
 
 #endif //MAIN_H_INCLUDED
 

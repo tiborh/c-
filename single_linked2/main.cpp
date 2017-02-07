@@ -6,8 +6,28 @@ using namespace std;
 int main(int argc, char** argv) {
   node_test();
   simple_stack_test();
+  input_test(argc,argv);
   
   return 0;
+}
+
+void input_test(int argc, char** argv) {
+  cout << '\n';
+  cout << "Command line args test\n";
+  cout << "======================\n";
+  if (argc == 1)
+    cout << "No command line args.\n";
+  else {
+    stack<string> ts;
+    for (int i = 1; i < argc; ++i) {
+      string inval(argv[i]);
+      if (inval == "----")
+	ts.pop();
+      else
+	ts.push(inval);
+    }
+    std::cout << ts << '\n';
+  }
 }
 
 void node_test() {

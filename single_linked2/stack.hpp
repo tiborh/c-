@@ -64,7 +64,9 @@ T stack<T>::pop() {
     throw nomoreitems();
 
   T to_return = first->item;
+  node<T>* old_node = first;
   first = first->next_node;
+  delete(old_node);
   --n;
   return to_return;
 }
@@ -80,8 +82,9 @@ T stack<T>::pop() {
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const stack<T>& st) {
   node<T>* ptr = st.first;
-  int n = st.size();
-  for(int i = 0; i < n; ++i) {
+  //int n = st.size();
+  //for(int i = 0; i < n; ++i) {
+  while (ptr != nullptr) {
     os << '\t' << *ptr << '\n';
     ptr = ptr->next_node;
   }
