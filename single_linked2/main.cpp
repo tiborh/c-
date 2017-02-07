@@ -9,8 +9,24 @@ int main(int argc, char** argv) {
   simple_stack_test();
   simple_queue_test();
   input_test(argc,argv);
+  cout << "\nStack iteration:\n";
+  iterator_test<stack<string>>();
+  cout << "\nQueue iteration:\n";
+  iterator_test<queue<string>>();
   
   return 0;
+}
+
+template<typename T1>
+void iterator_test() {
+  T1 tl;
+  for(int i = 0; i < NUM_OF_DAYS; ++i)
+    tl.push(THE_DAYS[i]);
+  cout << "The days loaded:\n" << tl << '\n';
+  cout << "Iterating through them: ";
+  for (typename T1::iterator it = tl.begin(); it != tl.end(); ++it)
+    cout << (*it).item << ", ";
+  cout << '\n';
 }
 
 void input_test(int argc, char** argv) {

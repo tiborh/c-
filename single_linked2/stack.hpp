@@ -8,8 +8,7 @@
 #include "node.hpp"
 
 struct nomoreitems: public std::exception {
-  virtual const char* what() const throw()
-  {
+  virtual const char* what() const throw() {
     return "No items in the list.";
   }
 };
@@ -20,7 +19,8 @@ template<typename T> std::ostream& operator<<(std::ostream&, const stack<T>&);
 template<typename T>
 class stack {
 public:
-  stack():first(nullptr),n(0) {}
+  struct iterator;
+  stack():first(nullptr),last(nullptr),n(0) {}
   //stack(const stack& other):first(other.first),n(other.n) {}
   ~stack() {}
   void push(const T);
@@ -30,12 +30,36 @@ public:
   //void erase();
   int size() const { return n; }
   bool is_empty() const { return first == nullptr; }
+  iterator begin() { return iterator(first); }
+  iterator end() { return iterator(last); }
   friend std::ostream& operator<< <> (std::ostream&, const stack<T>&);
 protected:
-  node<T> *first;
+  node<T> *first,*last;
   int n;
 private:
+};
 
+template<typename T>
+struct stack<T>::iterator {
+  node<T>* current;
+  iterator():current(nullptr) {}
+  iterator(node<T>* other):current(other) {}
+  node<T>& operator*() { return *current; }
+  bool operator==(const iterator& other) {
+    return (current->item == other.current->item &&
+	    current->next_node == other.current->next_node);
+  }
+  bool operator!=(const iterator& other) {
+    return !(*this==other);
+  }
+  iterator& operator++() {
+    if (current == nullptr) {
+      std::cerr << "Iterator points at nullptr.\n";
+      throw nomoreitems();
+    }
+    current = current->next_node;
+    return *this;
+  }
 };
 
 template<typename T>
@@ -51,8 +75,11 @@ void stack<T>::push(const T payload) {
   node<T>* a_node = new node<T>(payload);
   a_node->next_node = first;
   first = a_node;
+  if (last == nullptr)
+    last = a_node;
   assert(first->item == payload);
   assert(first == a_node);
+  assert(last != nullptr);
   ++n;
 }
 
@@ -60,10 +87,13 @@ template<typename T>
 T stack<T>::pop() {
   if (n == 0 || first == nullptr )
     throw nomoreitems();
+  assert(last != nullptr);
 
   T to_return = first->item;
   node<T>* old_node = first;
   first = first->next_node;
+  if (first == nullptr)
+    last = nullptr;
   delete(old_node);
   --n;
   return to_return;
