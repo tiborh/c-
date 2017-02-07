@@ -10,7 +10,7 @@
 struct nomoreitems: public std::exception {
   virtual const char* what() const throw()
   {
-    return "There are no more items on the stack";
+    return "No items in the list.";
   }
 };
 
@@ -26,7 +26,7 @@ public:
   void push(const T);
   //void push(const node<T>);
   T pop();
-  T view() const { return first->item; }
+  T view() const;
   //void erase();
   int size() const { return n; }
   bool is_empty() const { return first == nullptr; }
@@ -37,6 +37,14 @@ protected:
 private:
 
 };
+
+template<typename T>
+T stack<T>::view() const {
+  if (n == 0 || first == nullptr )
+    throw nomoreitems();
+  
+  return first->item;
+}
 
 template<typename T>
 void stack<T>::push(const T payload) {

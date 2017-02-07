@@ -123,6 +123,16 @@ void simple_stack_test() {
     cerr << "Unexpected error:\n";
     cerr << e.what() << endl;
   }
+  cout << "Checking the same with 'view'.\n";
+  try {
+    a.view();
+  } catch(nomoreitems& e) {
+    cerr << "Error with view()\n";
+    cerr << e.what() << endl;
+  } catch(std::exception e) {
+    cerr << "Unexpected error:\n";
+    cerr << e.what() << endl;
+  }
   assert(a.size() == 0);
 }
 
@@ -131,7 +141,9 @@ void simple_queue_test() {
   cout << "Simple queue tests\n";
   cout << "==================\n";
   queue<string> a;
+  assert(a.is_empty());
   a.push("one");
+  assert(!a.is_empty());
   assert(a.size() == 1);
   cout << "one member:\n" << a << '\n';
   a.push("two");
