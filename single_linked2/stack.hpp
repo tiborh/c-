@@ -48,16 +48,6 @@ void stack<T>::push(const T payload) {
   ++n;
 }
 
-// template<typename T>
-// void stack<T>::push(const node<T> new_node) {
-//   node<T>* a_node = new node<T>(new_node);
-//   a_node -> next_node = first;
-//   first = a_node;
-//   assert(first->item == new_node.item);
-//   assert(first == a_node);
-//   ++n;
-// }
-
 template<typename T>
 T stack<T>::pop() {
   if (n == 0 || first == nullptr )
@@ -71,14 +61,6 @@ T stack<T>::pop() {
   return to_return;
 }
 
-// template<typename T>
-// void stack<T>::erase() {
-//   while(first != nullptr)
-//     pop();
-//   assert(n == 0);
-//   assert(first == nullptr);
-// }
-
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const stack<T>& st) {
   node<T>* ptr = st.first;
@@ -90,6 +72,24 @@ std::ostream& operator<<(std::ostream& os, const stack<T>& st) {
   }
   return os;
 }
+
+// template<typename T>
+// void stack<T>::push(const node<T> new_node) {
+//   node<T>* a_node = new node<T>(new_node);
+//   a_node -> next_node = first;
+//   first = a_node;
+//   assert(first->item == new_node.item);
+//   assert(first == a_node);
+//   ++n;
+// }
+
+// template<typename T>
+// void stack<T>::erase() {
+//   while(first != nullptr)
+//     pop();
+//   assert(n == 0);
+//   assert(first == nullptr);
+// }
 
 #endif //STACK_H_INCLUDED
 

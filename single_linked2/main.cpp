@@ -1,11 +1,13 @@
 #include <iostream>
 #include "main.hpp"
+#include <limits>
 
 using namespace std;
 
 int main(int argc, char** argv) {
   node_test();
   simple_stack_test();
+  simple_queue_test();
   input_test(argc,argv);
   
   return 0;
@@ -15,19 +17,53 @@ void input_test(int argc, char** argv) {
   cout << '\n';
   cout << "Command line args test\n";
   cout << "======================\n";
-  if (argc == 1)
-    cout << "No command line args.\n";
-  else {
-    stack<string> ts;
-    for (int i = 1; i < argc; ++i) {
-      string inval(argv[i]);
-      if (inval == "----")
-	ts.pop();
-      else
-	ts.push(inval);
-    }
-    std::cout << ts << '\n';
+  if (argc == 1) {
+    cout << "No command line args.\n(looking for input on stdin)\n";
+    vector<string> inwords;
+    do {
+      string inword;
+      cin >> inword;
+      // cout << "input read: " << inword << " (length: " << inword.size() << ")\n";
+      if (inword.size() > 0)
+	inwords.push_back(inword);
+    } while (!cin.eof());
+    cout << "\n<<<Input test with stack (stdin):>>>\n";
+    list_maker<stack<string>>(inwords);
+    cout << "\n<<<Input test with queue (stdin):>>>\n";
+    list_maker<queue<string>>(inwords);
+  } else {
+    cout << "\n<<<Input test with stack (argv):>>>\n";
+    list_maker<stack<string>>(argc,argv);
+    cout << "\n<<<Input test with queue (argv):>>>\n";
+    list_maker<queue<string>>(argc,argv);
   }
+}
+
+template<typename T1>
+void list_maker(vector<string> argv) {
+  T1 ts;
+  int length = argv.size();
+  for (int i = 0; i < length; ++i) {
+    string inval(argv[i]);
+    if (inval == "----")
+      ts.pop();
+    else
+      ts.push(inval);
+  }
+  std::cout << ts << '\n';
+}
+
+template<typename T1>
+void list_maker(int argc, char** argv) {
+  T1 ts;
+  for (int i = 1; i < argc; ++i) {
+    string inval(argv[i]);
+    if (inval == "----")
+      ts.pop();
+    else
+      ts.push(inval);
+  }
+  std::cout << ts << '\n';
 }
 
 void node_test() {
@@ -88,4 +124,25 @@ void simple_stack_test() {
     cerr << e.what() << endl;
   }
   assert(a.size() == 0);
+}
+
+void simple_queue_test() {
+  cout << '\n';
+  cout << "Simple queue tests\n";
+  cout << "==================\n";
+  queue<string> a;
+  a.push("one");
+  assert(a.size() == 1);
+  cout << "one member:\n" << a << '\n';
+  a.push("two");
+  a.push("three");
+  assert(a.size() == 3);
+  assert(a.view() == string("one"));
+  cout << "three members:\n" << a << '\n';
+  string popped = a.pop();
+  assert(popped == string("one"));
+  cout << "pop one: " <<  popped << '\n';
+  assert(a.size() == 2);
+  assert(a.view() == string("two"));
+  cout << "two members:\n" << a << '\n';
 }
