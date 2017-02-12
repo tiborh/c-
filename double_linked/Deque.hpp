@@ -13,12 +13,6 @@ struct nomoreitems: public std::exception {
   }
 };
 
-struct NullPointerException: public std::exception {
-  virtual const char* what() const throw() {
-    return "NULL item cannot be added.";
-  }
-};
-
 template<typename T>
 class Deque {
 public:
