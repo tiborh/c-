@@ -23,7 +23,12 @@ template<typename T>
 class Deque {
 public:
   struct iterator;
-  Deque():first(nullptr),last(nullptr),n(0) {}
+  Deque():n(0) {
+    end_item = new Item<T>();
+    first = end_item;
+    last = end_item;
+  }
+  ~Deque();
   bool isEmpty() const { return n == 0; }
   int size() const { return n; }
   void addFirst(const Item<T>&);
@@ -37,14 +42,27 @@ public:
   T viewFirst() const { return(first != nullptr ? first->id : T()); }
   T viewLast() const { return(last != nullptr ? last->id : T()); }
   iterator begin() { return iterator(first); }
-  iterator end() { return iterator(); }
+  iterator end() { return iterator(end_item); }
   template<typename T1> friend std::ostream& operator<<(std::ostream&, const Deque<T1>&);
 protected:
   Item<T> *first,*last;
   int n;
 private:
-
+  Item<T> *end_item;
 };
+
+template<typename T>
+Deque<T>::~Deque()  {
+    while(first != nullptr) {
+      Item<T> *old_first = first;
+      first = first->next_item;
+      if (old_first != nullptr) {
+	//std::cout << "destroying: " << *old_first;
+	delete(old_first);
+	--n;
+      }
+    }
+}
 
 template<typename T>
 struct Deque<T>::iterator {
@@ -69,6 +87,8 @@ struct Deque<T>::iterator {
       std::cerr << "Iterator points at nullptr.\n";
       throw nomoreitems();
     }
+    if (current->next_item == nullptr)
+      return *this;
     current = current->next_item;
     return *this;
   }
@@ -81,11 +101,17 @@ void Deque<T>::addFirst(const Item<T>& payload) {
   if (first != nullptr)
     first->prev_item = a_node;
   first = a_node;
-  if (last == nullptr)
+  if (last == end_item || last == nullptr) {
     last = a_node;
+    a_node->next_item = end_item;
+    end_item->prev_item = a_node;
+  }
   assert(first->id == payload.id);
   assert(first == a_node);
   assert(last != nullptr);
+  assert(last->next_item == end_item);
+  assert(end_item->prev_item == last);
+  assert(end_item->next_item == nullptr);
   ++n;
 }
 
@@ -98,16 +124,22 @@ void Deque<T>::addFirst(const T& payload) {
 template<typename T>
 void Deque<T>::addLast(const Item<T>& payload) {
   Item<T>* a_node = new Item<T>(payload);
-  a_node->next_item = nullptr;
-  if (last != nullptr) {
+  a_node->disconnect();
+  if (last != end_item && last != nullptr) {
     last->next_item = a_node;
     a_node->prev_item = last;
   }
+  a_node->next_item = end_item;
+  end_item->prev_item = a_node;
+
   last = a_node;
-  if (first == nullptr)
+  if (first == end_item || first == nullptr)
     first = a_node;
   assert(last->id == payload.id);
   assert(last == a_node);
+  assert(last->next_item == end_item);
+  assert(end_item->prev_item == last);
+  assert(end_item->next_item == nullptr);
   ++n;
 }
 
@@ -119,16 +151,15 @@ void Deque<T>::addLast(const T& payload) {
 
 template<typename T>
 Item<T> Deque<T>::removeFirst() {
-  if (n == 0 || first == nullptr )
+  if (n == 0 || first == end_item || first == nullptr)
     throw nomoreitems();
-  assert(last != nullptr);
+  assert(last != end_item);
 
   Item<T>* old_node = first;
   first = first->next_item;
-  if (first == nullptr)
-    last = nullptr;
-  else
-    first->prev_item = nullptr;
+  if (first == end_item)
+    last = end_item;
+  first->prev_item = nullptr;
   --n;
   old_node->disconnect();
   return *old_node;
@@ -143,16 +174,20 @@ T Deque<T>::removeFirst(bool payloadOnly) {
 
 template<typename T>
 Item<T> Deque<T>::removeLast() {
-  if (n == 0 || last == nullptr )
+  if (n == 0 || last == end_item || last == nullptr)
     throw nomoreitems();
-  assert(first != nullptr);
+  assert(first != end_item);
 
   Item<T>* old_node = last;
-  last = last->prev_item;
-  if (last == nullptr)
-    first = nullptr;
-  else
-    last->next_item = nullptr;
+  if (last->prev_item != nullptr) {
+    last = last->prev_item;
+    last->next_item = end_item;
+    end_item->prev_item = last;
+  } else {
+    last = end_item;
+    first = end_item;
+    end_item->prev_item = nullptr;
+  }
   --n;
   old_node->disconnect();
   return *old_node;
@@ -168,9 +203,9 @@ T Deque<T>::removeLast(bool payloadOnly) {
 template<typename T1>
 std::ostream& operator<<(std::ostream& os, const Deque<T1>& st) {
   Item<T1>* ptr = st.first;
-  //int n = st.size();
-  //for(int i = 0; i < n; ++i) {
-  while (ptr != nullptr) {
+  os << "(first): " << st.first << '\n';
+  os << "(last):  " << st.last  << '\n';
+  while (ptr != st.end_item) {
     os << '\t' << *ptr;
     ptr = ptr->next_item;
   }
