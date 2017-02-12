@@ -18,22 +18,25 @@ private:
 template<typename T>
 void queue<T>::push(const T payload) {
   node<T>* a_node = new node<T>(payload);
-  a_node->next_node = nullptr;
-  if (stack<T>::last != nullptr)
+  a_node->next_node = stack<T>::end_item;
+  assert(stack<T>::last != nullptr);
+  if (stack<T>::last != stack<T>::end_item)
     stack<T>::last->next_node = a_node;
   stack<T>::last = a_node;
-  if (stack<T>::first == nullptr)
+  if (stack<T>::first == stack<T>::end_item)
     stack<T>::first = a_node;
   assert(stack<T>::last->item == payload);
   assert(stack<T>::last == a_node);
+  assert(stack<T>::last->next_node == stack<T>::end_item);
   ++stack<T>::n;
 }
 
 template<typename T>
 T queue<T>::pop() {
   T outpayload = stack<T>::pop();
-  if (stack<T>::first == nullptr)
-    stack<T>::last = nullptr;
+  assert(stack<T>::first != nullptr);
+  if (stack<T>::first == stack<T>::end_item)
+    stack<T>::last = stack<T>::end_item;
   return outpayload;
 }
 

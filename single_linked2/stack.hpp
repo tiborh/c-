@@ -13,28 +13,42 @@ struct nomoreitems: public std::exception {
   }
 };
 
-template<typename T> class stack;
-template<typename T> std::ostream& operator<<(std::ostream&, const stack<T>&);
+//template<typename T> class stack;
+//template<typename T> std::ostream& operator<<(std::ostream&, const stack<T>&);
 
 template<typename T>
 class stack {
 public:
   struct iterator;
-  stack():first(nullptr),last(nullptr),n(0) {}
+  stack():n(0) {
+    end_item = new node<T>();
+    first = end_item;
+    last = end_item;
+  }
   //stack(const stack& other):first(other.first),n(other.n) {}
-  ~stack() {}
+  ~stack() {
+    while(first != nullptr) {
+      node<T> *old_first = first;
+      first = first->next_node;
+      if (old_first != nullptr) {
+	//std::cout << "destroying: " << *old_first;
+	delete(old_first);
+	--n;
+      }
+    }
+  }
   void push(const T);
   //void push(const node<T>);
   T pop();
   T view() const;
   //void erase();
   int size() const { return n; }
-  bool is_empty() const { return first == nullptr; }
+  bool is_empty() const { return first == end_item; }
   iterator begin() { return iterator(first); }
-  iterator end() { return iterator(); }
-  friend std::ostream& operator<< <> (std::ostream&, const stack<T>&);
+  iterator end() { return iterator(end_item); }
+  template<typename T1> friend std::ostream& operator<<(std::ostream&, const stack<T1>&);
 protected:
-  node<T> *first,*last;
+  node<T> *first,*last,*end_item;
   int n;
 private:
 };
@@ -61,6 +75,8 @@ struct stack<T>::iterator {
       std::cerr << "Iterator points at nullptr.\n";
       throw nomoreitems();
     }
+    if (current->next_node == nullptr)
+      return *this;
     current = current->next_node;
     return *this;
   }
@@ -68,7 +84,8 @@ struct stack<T>::iterator {
 
 template<typename T>
 T stack<T>::view() const {
-  if (n == 0 || first == nullptr )
+  assert(first != nullptr);
+  if (n == 0 || first == end_item)
     throw nomoreitems();
   
   return first->item;
@@ -79,25 +96,29 @@ void stack<T>::push(const T payload) {
   node<T>* a_node = new node<T>(payload);
   a_node->next_node = first;
   first = a_node;
-  if (last == nullptr)
+  assert(last!=nullptr);
+  if (last == end_item)
     last = a_node;
   assert(first->item == payload);
   assert(first == a_node);
   assert(last != nullptr);
+  assert(last->next_node == end_item);
   ++n;
 }
 
 template<typename T>
 T stack<T>::pop() {
-  if (n == 0 || first == nullptr )
+  assert(first != nullptr);
+  if (n == 0 || first == end_item )
     throw nomoreitems();
   assert(last != nullptr);
 
   T to_return = first->item;
   node<T>* old_node = first;
   first = first->next_node;
-  if (first == nullptr)
-    last = nullptr;
+  assert(first != nullptr);
+  if (first == end_item)
+    last = end_item;
   delete(old_node);
   --n;
   return to_return;
@@ -108,30 +129,12 @@ std::ostream& operator<<(std::ostream& os, const stack<T>& st) {
   node<T>* ptr = st.first;
   //int n = st.size();
   //for(int i = 0; i < n; ++i) {
-  while (ptr != nullptr) {
+  while (ptr != st.end_item) {
     os << '\t' << *ptr << '\n';
     ptr = ptr->next_node;
   }
   return os;
 }
-
-// template<typename T>
-// void stack<T>::push(const node<T> new_node) {
-//   node<T>* a_node = new node<T>(new_node);
-//   a_node -> next_node = first;
-//   first = a_node;
-//   assert(first->item == new_node.item);
-//   assert(first == a_node);
-//   ++n;
-// }
-
-// template<typename T>
-// void stack<T>::erase() {
-//   while(first != nullptr)
-//     pop();
-//   assert(n == 0);
-//   assert(first == nullptr);
-// }
 
 #endif //STACK_H_INCLUDED
 
