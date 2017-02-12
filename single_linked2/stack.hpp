@@ -31,7 +31,7 @@ public:
   int size() const { return n; }
   bool is_empty() const { return first == nullptr; }
   iterator begin() { return iterator(first); }
-  iterator end() { return iterator(last); }
+  iterator end() { return iterator(); }
   friend std::ostream& operator<< <> (std::ostream&, const stack<T>&);
 protected:
   node<T> *first,*last;
@@ -46,6 +46,10 @@ struct stack<T>::iterator {
   iterator(node<T>* other):current(other) {}
   node<T>& operator*() { return *current; }
   bool operator==(const iterator& other) {
+    if (current == nullptr && other.current == nullptr)
+      return true;
+    if (current == nullptr || other.current == nullptr)
+      return false;
     return (current->item == other.current->item &&
 	    current->next_node == other.current->next_node);
   }
