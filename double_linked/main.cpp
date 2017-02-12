@@ -1,7 +1,6 @@
 #include <iostream>
 #include "main.hpp"
 
-
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -84,7 +83,8 @@ void corner_case_tests() {
   Deque<string>::iterator it = a.begin();
   assert((*it).id == string("alpha"));
   ++it;
-  // segmentation fault: // in c++: this case is undefined behavour
+  // the following does not catch exception as implementation has changed:
+  // now ++ never goes beyond end_element.
   if (it != a.end())
     cout << *it;
   try {
@@ -107,6 +107,7 @@ void remove_last_test() {
     a.addFirst(string(cols[i]));
   cout << "The colours:\n" << a << '\n';
   int size_of_a = a.size();
+  cout << "popping items with removeLast():\n";
   for (int i = 0; i < size_of_a; ++i)
     cout << "popped item: " << a.removeLast();
   cout << "removeLast() on empty Deque:\n";
@@ -140,7 +141,7 @@ void iterator_test() {
     t2.addLast(THE_DAYS[i]);
   for (typename T1::iterator it = t2.begin(); it != t2.end(); ++it)
     cout << (*it).id << ", ";
-  cout << "\b\b\n";
+  cout << "\n";
 }
 
 void simple_queue_test() {
@@ -233,6 +234,11 @@ void item_test() {
   assert(!b.is_disconnected());
   assert(!c.is_disconnected());
 
+  cout << "item as pointer:\n";
+  Item<string>* d = new Item<string>();
+  cout << d << '\n';
+  cout << *d;
+  
   // so far, no cure has been found against the following:
   // cout << "Null item.\n";
   // Item<const char*> d = (Item<const char*>)nullptr;
