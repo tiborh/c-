@@ -13,8 +13,66 @@ int main(int argc, char** argv) {
   iterator_test<stack<string>>();
   cout << "\nQueue iteration:\n";
   iterator_test<queue<string>>();
-  
+  testRandomisedQueue();
   return 0;
+}
+
+string deq_an_elem(RandomisedQueue<string>& a) {
+  int the_size = a.size();
+  string anElem = a.dequeue();
+  cout << "dequeued element:'" << anElem << "'\n";
+  assert(a.size() == the_size-1);
+  cout << "\tremaining queue:\n";
+  cout << a;
+  return anElem;
+}
+
+void testRandomisedQueue() {
+  cout << '\n';
+  cout << "RandomisedQueue test\n";
+  cout << "====================\n";
+  RandomisedQueue<string> a;
+  assert(a.size() == 0);
+  assert(a.isEmpty());
+  string one("one");
+  string two("two");
+  string three("three");
+  a.enqueue(one);
+  a.enqueue(two);
+  a.enqueue(three);
+  assert(a.size() == 3);
+  cout << "Three items in the queue:\n";
+  cout << a;
+  cout << "sample() test (randomised view):\n";
+  for (int i = 0; i < 15; ++i) {
+    string an_elem = a.sample();
+    cout << "\tsample element:'" << an_elem << "'\n";
+    assert(a.size() == 3);
+    assert(an_elem == one || an_elem == two || an_elem == three);
+  }
+  cout << "dequeue (randomised pop):\n";
+  for (int i = 0; i < 3; ++i) {
+    string anElem = deq_an_elem(a);
+    assert(anElem == one || anElem == two || anElem == three);
+  }
+  try {
+    a.sample();
+  } catch(nomoreitems& e) {
+    cerr << "Error with sample()\n";
+    cerr << e.what() << endl;
+  } catch(std::exception e) {
+    cerr << "Unexpected error:\n";
+    cerr << e.what() << endl;
+  }
+  try {
+    a.dequeue();
+  } catch(nomoreitems& e) {
+    cerr << "Error with dequeue()\n";
+    cerr << e.what() << endl;
+  } catch(std::exception e) {
+    cerr << "Unexpected error:\n";
+    cerr << e.what() << endl;
+  }
 }
 
 template<typename T1>

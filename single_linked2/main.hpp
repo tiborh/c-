@@ -3,6 +3,7 @@
 
 #include "stack.hpp"
 #include "queue.hpp"
+#include "RandomisedQueue.hpp"
 #include <vector>
 #include <string>
 
@@ -16,6 +17,7 @@ template<typename T1> void list_maker(std::vector<std::string>);
 template<typename T1> void list_maker(int, char**);
 void simple_queue_test();
 template<typename T1> void iterator_test();
+void testRandomisedQueue();
 
 #endif //MAIN_H_INCLUDED
 

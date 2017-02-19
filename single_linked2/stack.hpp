@@ -20,23 +20,8 @@ template<typename T>
 class stack {
 public:
   struct iterator;
-  stack():n(0) {
-    end_item = new node<T>();
-    first = end_item;
-    last = end_item;
-  }
-  //stack(const stack& other):first(other.first),n(other.n) {}
-  ~stack() {
-    while(first != nullptr) {
-      node<T> *old_first = first;
-      first = first->next_node;
-      if (old_first != nullptr) {
-	//std::cout << "destroying: " << *old_first;
-	delete(old_first);
-	--n;
-      }
-    }
-  }
+  stack();
+  ~stack();
   void push(const T);
   //void push(const node<T>);
   T pop();
@@ -52,6 +37,26 @@ protected:
   int n;
 private:
 };
+
+template<typename T>
+stack<T>::~stack()  {
+  while(first != nullptr) {
+    node<T> *old_first = first;
+    first = first->next_node;
+    if (old_first != nullptr) {
+      //std::cout << "destroying: " << *old_first;
+      delete(old_first);
+      --n;
+    }
+  }
+}
+
+template<typename T>
+stack<T>::stack():n(0) {
+  end_item = new node<T>();
+  first = end_item;
+  last = end_item;
+}
 
 template<typename T>
 struct stack<T>::iterator {
