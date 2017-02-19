@@ -11,4 +11,4 @@ LDFLAGS="-lbsd"
 cppfiles=*.cpp
 headerfiles=*.hpp
 
-g++ ${CPPFLAGS} -o $1 ${LDFLAGS} ${cppfiles} ${headerfiles}
+g++ ${CPPFLAGS} -o $1 ${cppfiles} ${headerfiles}  ${LDFLAGS}
