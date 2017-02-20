@@ -8,18 +8,19 @@ template<typename T> std::ostream& operator<<(std::ostream&, const node<T>&);
 
 template<typename T>
 struct node {
-  node():next_node(nullptr),empty(true) {}
-  node(T in):item(in),next_node(nullptr),empty(false) {}
-  node(const node& in):item(in.item),next_node(in.next_node),empty(in.empty) {}
+  node():next_node(nullptr),empty(true),visited(false) {}
+  node(T in):item(in),next_node(nullptr),empty(false),visited(false) {}
+  node(const node& in):item(in.item),next_node(in.next_node),empty(in.empty),visited(in.visited) {}
   T item;
   node* next_node;
-  bool empty;
+  bool empty,visited;
 };
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const node<T>& nd) {
   os << &nd << ": " << (!nd.empty ? nd.item : "<null>") << " -> "
-     << (nd.next_node != nullptr ? nd.next_node : 0);
+     << (nd.next_node != nullptr ? nd.next_node : 0)
+     << " (" << ( nd.visited ? "visited" : "unvisited" ) << ')';
   return os;
 }
 
